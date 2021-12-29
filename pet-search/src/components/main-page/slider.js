@@ -7,7 +7,7 @@ import bunny from "../img/bunny.jpg";
 export default class MainPageSlider extends Component {
   render() {
     return (
-      <div>
+      <div className="mb-14">
         <Carousel variant="dark">
           <Carousel.Item interval={5000}>
             <img

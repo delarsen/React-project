@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import RouteButtons from "./route-buttons";
 import MainPageSlider from "./slider";
 
 export default class index extends Component {
@@ -6,6 +7,7 @@ export default class index extends Component {
     return (
       <div>
         <MainPageSlider />
+        <RouteButtons />
       </div>
     );
   }
