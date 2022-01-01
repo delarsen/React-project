@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import dog2 from "../img/dog2.jpg";
-import cat1 from "../img/cat1.jpg";
-import bunny from "../img/bunny.jpg";
+import dog2 from "../../images/dog2.jpg";
+import cat1 from "../../images/cat1.jpg";
+import bunny from "../../images/bunny.jpg";
 
 export default class MainPageSlider extends Component {
   render() {

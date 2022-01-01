@@ -8,14 +8,38 @@ import {
   Form,
   Image,
 } from "react-bootstrap";
-import login from "../img/login-icon.jpg";
+import login from "../../images/login-icon.jpg";
+import LoginButton from "./login-button";
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoggedIn: !!localStorage.getItem("isLoggedIn"),
+    };
+
+    this.checkIsUserLoggedIn = this.checkIsUserLoggedIn.bind(this);
+  }
+  componentDidMount() {
+    window.addEventListener("storage", this.checkIsUserLoggedIn);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("storage", this.checkIsUserLoggedIn);
+  }
+
+  checkIsUserLoggedIn(e) {
+    if (e.key === "isLoggedIn") {
+      this.setState({ isLoggedIn: e.newValue });
+    }
+  }
+
   render() {
     return (
       <div>
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand href="#home">Animal search</Navbar.Brand>
+            <Navbar.Brand href="/">Animal search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
               id="basic-navbar-nav"
@@ -48,8 +72,7 @@ export default class Header extends Component {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-
-                <Image src={login} className="w-9 h-9 ml-5" roundedCircle />
+                <LoginButton isLoggedIn={this.state.isLoggedIn} />
               </Form>
             </Navbar.Collapse>
           </Container>

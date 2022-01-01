@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  NavDropdown,
-  Nav,
-  Container,
-  Navbar,
-  FormControl,
-  Form,
-} from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 
 export default class Footer extends Component {
   render() {
@@ -22,7 +15,6 @@ export default class Footer extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {" "}
                   ArsenSuperGood.com
                 </a>
               </div>

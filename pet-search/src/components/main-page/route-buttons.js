@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import RouteButton from "./route-button";
-import dog2 from "../img/dog2.jpg";
+import dog2 from "../../images/dog2.jpg";
 
 export default class RouteButtons extends Component {
   render() {
