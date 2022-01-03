@@ -1,60 +1,70 @@
-import fetch from "node-fetch";
+import axios from "axios";
 
-const apiBase = "http://localhost:3000";
+//npx json-server -p 3001 -w db.json
+
+const apiBase = "http://localhost:3001";
 
 const usersEndpoint = "/users";
 
 const getUsers = async () => {
-  const response = await fetch(`${apiBase}${usersEndpoint}`);
-  const users = await response.json();
-
-  return users;
+  try {
+    return await (
+      await axios.get(`${apiBase}${usersEndpoint}`)
+    ).data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const getSortedUsers = async (fields) => {
-  const response = await fetch(`${apiBase}${usersEndpoint}?_sort=${fields}`);
-  const users = await response.json();
-
-  return users;
+  try {
+    return await (
+      await axios.get(`${apiBase}${usersEndpoint}?_sort=${fields}`)
+    ).data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const addUser = async (user) => {
-  const newUserResponse = await fetch(`${apiBase}${usersEndpoint}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json;charset=utf-8" },
-    body: JSON.stringify(user),
-  });
-
-  const result = await newUserResponse.json();
-  return result;
+  try {
+    return await (
+      await axios.post(`${apiBase}${usersEndpoint}`, user)
+    ).data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const deleteUsers = async (id) => {
-  await fetch(`${apiBase}${usersEndpoint}/${id}`, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json;charset=utf-8" },
-  });
+  try {
+    return await axios.delete(`${apiBase}${usersEndpoint}/${id}`);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const replaceUser = async (id, newUser) => {
-  const newUserResponse = await fetch(`${apiBase}${usersEndpoint}/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json;charset=utf-8" },
-    body: JSON.stringify(newUser),
-  });
-
-  await newUserResponse.json();
+  try {
+    return await (
+      await axios.put(`${apiBase}${usersEndpoint}/${id}`, newUser)
+    ).data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const updateUser = async (id, field, value) => {
   const body = {};
   body[field] = value;
 
-  await fetch(`${apiBase}${usersEndpoint}/${id}`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json;charset=utf-8" },
-    body: JSON.stringify(body),
-  });
+  try {
+    return await (
+      await axios.patch(`${apiBase}${usersEndpoint}/${id}`, body)
+    ).data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export {

@@ -37,7 +37,7 @@ export default class Header extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="h-14">
           <Container>
             <Navbar.Brand href="/">Animal search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

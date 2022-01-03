@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg" sticky="bottom" className="mt-20">
+        <Navbar bg="light" expand="lg" sticky="bottom" className="h-16">
           <Container>
             <Navbar.Collapse className="justify-content-end">
               <div className="footer-copyright text-center py-3">

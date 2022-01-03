@@ -27,14 +27,20 @@ export default class LoginButton extends Component {
     if (this.props.isLoggedIn) {
       return (
         <Dropdown.Menu>
-          <Dropdown.Item eventKey="1">Account</Dropdown.Item>
-          <Dropdown.Item eventKey="2">Log out</Dropdown.Item>
+          <Dropdown.Item eventKey="1" href="/account">
+            Account
+          </Dropdown.Item>
+          <Dropdown.Item eventKey="2" href="/logout">
+            Log out
+          </Dropdown.Item>
         </Dropdown.Menu>
       );
     }
     return (
       <Dropdown.Menu>
-        <Dropdown.Item eventKey="1">Log in</Dropdown.Item>
+        <Dropdown.Item eventKey="1" href="/login">
+          Log in
+        </Dropdown.Item>
       </Dropdown.Menu>
     );
   }
