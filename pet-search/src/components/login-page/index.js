@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button, Col, Form, Image, InputGroup, Row } from "react-bootstrap";
+import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import paws from "../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
+import * as userService from "../../services/user-service";
 
 const schema = yup.object().shape({
   email: yup.string().required(),
@@ -10,16 +11,32 @@ const schema = yup.object().shape({
 });
 
 function LoginPage() {
-  const [setValidated] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleLoginSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  const loginUser = (values) => {
+    userService.getUsers().then((users) => {
+      const user = users.find((user) => user.email === values.email);
+      if (!user) {
+        setErrorMessage("User not found");
+        return;
+      }
 
-    setValidated(true);
+      if (user.password !== values.password) {
+        setErrorMessage("Incorrect password");
+        return;
+      }
+
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: user.email,
+          name: user.name,
+          surname: user.surname,
+        })
+      );
+      window.location.href = "/";
+    });
   };
 
   return (
@@ -32,7 +49,7 @@ function LoginPage() {
           email: "",
           password: "",
         }}
-        onSubmit={(formValues) => alert(JSON.stringify(formValues))}
+        onSubmit={(formValues) => loginUser(formValues)}
         validationSchema={schema}
       >
         {({ handleSubmit, handleChange, values, errors }) => (
@@ -47,7 +64,7 @@ function LoginPage() {
                   aria-describedby="inputGroupPrepend"
                   value={values.email || ""}
                   name="Email"
-                  onChange={handleChange}
+                  onChange={handleChange("email")}
                   isInvalid={!!errors.email}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -67,7 +84,7 @@ function LoginPage() {
                   placeholder="Password"
                   name="Password"
                   value={values.password || ""}
-                  onChange={handleChange}
+                  onChange={handleChange("password")}
                   isInvalid={!!errors.password}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -75,7 +92,8 @@ function LoginPage() {
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
-            <div className="max-w-full flex mt-2 items-center">
+            <div className="text-red-600 mt-2">{errorMessage}</div>
+            <div className="max-w-full flex items-center">
               <Form.Group as={Col} md="8">
                 <div>
                   Don't have an account? <a href="/register">Register</a>

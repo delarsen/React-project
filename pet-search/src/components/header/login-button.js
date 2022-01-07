@@ -23,14 +23,20 @@ export default class LoginButton extends Component {
     this.renderDropdownMenu = this.renderDropdownMenu.bind(this);
   }
 
+  logOut() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  }
+
   renderDropdownMenu() {
     if (this.props.isLoggedIn) {
       return (
         <Dropdown.Menu>
           <Dropdown.Item eventKey="1" href="/account">
-            Account
+            Account: {this.props.user?.name}
           </Dropdown.Item>
-          <Dropdown.Item eventKey="2" href="/logout">
+          <Dropdown.Item eventKey="2" onClick={() => this.logOut()}>
             Log out
           </Dropdown.Item>
         </Dropdown.Menu>

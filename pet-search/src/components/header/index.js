@@ -16,6 +16,9 @@ export default class Header extends Component {
 
     this.state = {
       isLoggedIn: !!localStorage.getItem("isLoggedIn"),
+      user: !!localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))
+        : {},
     };
 
     this.checkIsUserLoggedIn = this.checkIsUserLoggedIn.bind(this);
@@ -31,6 +34,10 @@ export default class Header extends Component {
   checkIsUserLoggedIn(e) {
     if (e.key === "isLoggedIn") {
       this.setState({ isLoggedIn: e.newValue });
+    }
+
+    if (e.key === "user") {
+      this.setState({ user: JSON.parse(e.newValue) });
     }
   }
 
@@ -72,7 +79,10 @@ export default class Header extends Component {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <LoginButton isLoggedIn={this.state.isLoggedIn} />
+                <LoginButton
+                  isLoggedIn={this.state.isLoggedIn}
+                  user={this.state.user}
+                />
               </Form>
             </Navbar.Collapse>
           </Container>

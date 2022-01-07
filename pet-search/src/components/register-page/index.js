@@ -3,6 +3,7 @@ import paws from "../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
 import * as userService from "../../services/user-service";
+import { useState } from "react";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -16,15 +17,25 @@ const schema = yup.object().shape({
 });
 
 function RegisterPage() {
+  const [errorMessage, setErrorMessage] = useState("");
+
   const registerUser = (values) => {
-    userService
-      .addUser({
-        name: values.name,
-        surname: values.surname,
-        email: values.email,
-        password: values.password,
-      })
-      .then(() => (window.location.href = "/login"));
+    userService.getUsers().then((users) => {
+      const user = users.find((user) => user.email === values.email);
+      if (user) {
+        setErrorMessage("User with this email already exists");
+        return;
+      }
+
+      userService
+        .addUser({
+          name: values.name,
+          surname: values.surname,
+          email: values.email,
+          password: values.password,
+        })
+        .then(() => (window.location.href = "/login"));
+    });
   };
 
   return (
@@ -136,7 +147,8 @@ function RegisterPage() {
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
-            <div className="max-w-full flex mt-2 items-center">
+            <div className="text-red-600 mt-2">{errorMessage}</div>
+            <div className="max-w-full flex items-center">
               <Form.Group as={Col} md="8">
                 <div>
                   Have an account? <a href="/login">Log in</a>
