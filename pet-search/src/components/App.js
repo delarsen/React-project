@@ -5,6 +5,8 @@ import MainPage from "./main-page";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./login-page";
 import RegisterPage from "./register-page";
+import ReportFoundPetPage from "./report-found-pet";
+import ReportLostPetPage from "./report-lost-pet";
 export default class App extends Component {
   render() {
     return (
@@ -16,6 +18,8 @@ export default class App extends Component {
               <Route path="/" element={<MainPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
+              <Route path="/reportlostpet" element={<ReportLostPetPage />} />
             </Routes>
           </Router>
         </div>

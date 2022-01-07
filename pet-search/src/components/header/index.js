@@ -59,11 +59,11 @@ export default class Header extends Component {
                     id="basic-nav-dropdown"
                     className="ml-12"
                   >
-                    <NavDropdown.Item href="#action/3.1">
+                    <NavDropdown.Item href="/reportfoundpet">
                       Report pet
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2">
+                    <NavDropdown.Item href="/reportlostpet">
                       Register pet
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
