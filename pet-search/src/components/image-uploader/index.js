@@ -28,7 +28,7 @@ export default class ImageUploader extends Component {
 
     reader.onloadend = () => {
       this.setState({ images: [...this.state.images, reader.result] });
-      console.log(this.state.images);
+      this.props.handleImages(this.state.images);
     };
 
     if (file) {
@@ -37,9 +37,14 @@ export default class ImageUploader extends Component {
   };
 
   renderImages = () => {
-    return this.state.images.map((image) => {
+    return this.state.images.map((image, index) => {
       return (
-        <Image src={image} thumbnail className="w-32 m-auto object-cover" />
+        <Image
+          src={image}
+          key={index}
+          thumbnail
+          className="w-32 m-auto object-cover"
+        />
       );
     });
   };

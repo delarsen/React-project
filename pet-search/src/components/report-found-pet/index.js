@@ -4,6 +4,8 @@ import paws from "../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
 import ImageUploader from "../image-uploader";
+import * as dayjs from "dayjs";
+import * as petService from "../../services/pet-service";
 
 let schema = yup.object().shape({
   age: yup.number().min(0).required(),
@@ -21,8 +23,34 @@ class ReportFoundPetPage extends Component {
     super(props);
     this.state = {
       breedList: breeds.cat,
+      images: [],
     };
   }
+
+  handleImages = (images) => {
+    this.setState({ images: images });
+  };
+
+  onSubmitPet = (values) => {
+    const pet = {
+      type: values.typeOfPet,
+      breed:
+        !values.breed || values.breed === ""
+          ? breeds[values.typeOfPet].shift()
+          : values.breed,
+      gemder: values.gender,
+      age: values.age,
+      neutered: values.neutered,
+      color: values.color,
+      description: values.description,
+      date: values.date,
+      images: this.state.images,
+    };
+
+    petService.addFoundPet(pet).then(() => {
+      window.location.href = "/";
+    });
+  };
 
   onChangePet = (e) => {
     const pet = e.target.value;
@@ -30,8 +58,15 @@ class ReportFoundPetPage extends Component {
   };
 
   renderBreedsOptions = () => {
-    const options = this.state.breedList.map((breed) => {
+    const options = this.state.breedList.map((breed, index) => {
       const value = breed.replaceAll(" ", "");
+      if (index === 0) {
+        return (
+          <option value={value} key={value}>
+            {breed}
+          </option>
+        );
+      }
       return (
         <option value={value} key={value}>
           {breed}
@@ -57,25 +92,19 @@ class ReportFoundPetPage extends Component {
 
         <Formik
           initialValues={{
-            typeOfPet: "",
+            typeOfPet: "cat",
             age: "",
             breed: "",
-            gender: "",
-            neutered: "",
-            color: "",
+            gender: "male",
+            neutered: "yes",
+            color: "red",
             description: "",
-            date: "",
+            date: dayjs().format("YYYY-MM-DD"),
           }}
           validationSchema={schema}
+          onSubmit={this.onSubmitPet}
         >
-          {({
-            handleSubmit,
-            handleChange,
-            setFieldValue,
-            values,
-            errors,
-            onChange,
-          }) => (
+          {({ handleSubmit, handleChange, setFieldValue, values, errors }) => (
             <Form as={Col} noValidate>
               <Form.Group as={Col} className="mt-20">
                 <Form.Label>Type of pet</Form.Label>
@@ -245,10 +274,12 @@ class ReportFoundPetPage extends Component {
                   </Form.Control.Feedback>
                 </InputGroup>
               </Form.Group>
-              <ImageUploader></ImageUploader>
+              <ImageUploader handleImages={this.handleImages}></ImageUploader>
               <div className="mt-10">
                 <div className="float-right">
-                  <Button type="submit">Report pet</Button>
+                  <Button type="submit" onClick={handleSubmit}>
+                    Report pet
+                  </Button>
                 </div>
               </div>
             </Form>
