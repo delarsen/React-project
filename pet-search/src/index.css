@@ -19,3 +19,11 @@ code {
 .main-content {
   min-height: calc(100vh - 7.5rem);
 }
+
+.hidden-input .input-group {
+  display: none !important;
+}
+
+.img-preview .img-thumbnail {
+  height: 8rem;
+}
