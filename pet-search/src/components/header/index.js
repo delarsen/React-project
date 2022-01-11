@@ -67,14 +67,14 @@ export default class Header extends Component {
                     className="ml-12"
                   >
                     <NavDropdown.Item href="/reportlostpet">
-                      Report your pet
+                      Report lost pet
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/reportfoundpet">
                       Register found pet
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.3">
+                    <NavDropdown.Item href="/viewpets">
                       View pets
                     </NavDropdown.Item>
                   </NavDropdown>

@@ -8,13 +8,45 @@ import * as dayjs from "dayjs";
 import * as petService from "../../services/pet-service";
 
 let schema = yup.object().shape({
-  age: yup.number().min(0).required(),
+  age: yup.number().required(),
 });
 
 const breeds = {
-  cat: ["black", "yellow"],
-  dog: ["corgi", "ovcharka"],
-  bunny: ["red", "black"],
+  cat: [
+    "Siamese",
+    "Persian",
+    "Maine Coon",
+    "Ragdoll",
+    "Bengal",
+    "Abyssinian",
+    "Birman",
+    "Oriental Shorthair",
+    "Sphynx",
+    "Devon Rex",
+    "Himalayan",
+    "American Shorthair",
+  ],
+  dog: [
+    "Bulldog",
+    "Retriever",
+    "Poodles ",
+    "Beagles",
+    "Rottweiler",
+    "Yorkshire Terrier",
+    "Shetland Sheepdog",
+    "Corgi",
+    "Chihuahua",
+  ],
+  bunny: [
+    "Holland Lop",
+    "Mini Lop",
+    "Dutch",
+    "Lionhead",
+    "French Lop",
+    "Californian",
+    "Dwarf Papillon",
+    "Mini Rex",
+  ],
   dontknow: [],
 };
 
@@ -38,7 +70,7 @@ class ReportFoundPetPage extends Component {
         !values.breed || values.breed === ""
           ? breeds[values.typeOfPet].shift()
           : values.breed,
-      gemder: values.gender,
+      gender: values.gender,
       age: values.age,
       neutered: values.neutered,
       color: values.color,
@@ -86,10 +118,13 @@ class ReportFoundPetPage extends Component {
   render() {
     return (
       <Row className="w-full ">
+        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-7xl text-white font-light">
+          Report pet As Found
+        </div>
+
         <div className="col-md-3">
           <img src={paws} className="h-720 mt-10" />
         </div>
-
         <Formik
           initialValues={{
             typeOfPet: "cat",
@@ -106,7 +141,13 @@ class ReportFoundPetPage extends Component {
         >
           {({ handleSubmit, handleChange, setFieldValue, values, errors }) => (
             <Form as={Col} noValidate>
-              <Form.Group as={Col} className="mt-20">
+              <div className="text-base font-light mt-5 text-lg">
+                Thank you for taking the time to register a pet you have found,
+                or a pet that you have seen that you feel may be lost. We help
+                to reunite thousand of pets every year, and we couldn't do this
+                without your help!
+              </div>
+              <Form.Group as={Col} className="mt-10">
                 <Form.Label>Type of pet</Form.Label>
                 <InputGroup hasValidation>
                   <Form.Select
@@ -277,7 +318,11 @@ class ReportFoundPetPage extends Component {
               <ImageUploader handleImages={this.handleImages}></ImageUploader>
               <div className="mt-10">
                 <div className="float-right">
-                  <Button type="submit" onClick={handleSubmit}>
+                  <Button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="mb-20"
+                  >
                     Report pet
                   </Button>
                 </div>
@@ -285,7 +330,6 @@ class ReportFoundPetPage extends Component {
             </Form>
           )}
         </Formik>
-
         <div className="col-md-3 flex flex-row-reverse">
           <img src={paws} className="h-720 mt-10" />
         </div>

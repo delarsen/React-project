@@ -6,6 +6,40 @@
       "email": "email",
       "password": "pass",
       "id": 1
+    },
+    {
+      "name": "s",
+      "surname": "s",
+      "email": "s@gmail.com",
+      "password": "s",
+      "id": 2
+    }
+  ],
+  "foundpets": [
+    {
+      "type": "cat",
+      "breed": "Siamese",
+      "gemder": "male",
+      "age": 1.1,
+      "neutered": "yes",
+      "color": "red",
+      "description": "aaa",
+      "date": "2022-01-11",
+      "images": []
+    }
+  ],
+  "lostpets": [
+    {
+      "type": "cat",
+      "breed": "Siamese",
+      "gemder": "male",
+      "age": 11,
+      "neutered": "yes",
+      "color": "red",
+      "description": "",
+      "date": "2022-01-11",
+      "images": [],
+      "id": 1
     }
   ]
 }

@@ -7,6 +7,7 @@ import LoginPage from "./login-page";
 import RegisterPage from "./register-page";
 import ReportFoundPetPage from "./report-found-pet";
 import ReportLostPetPage from "./report-lost-pet";
+import ViewPetsPage from "./view-pets";
 export default class App extends Component {
   render() {
     return (
@@ -20,6 +21,7 @@ export default class App extends Component {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
               <Route path="/reportlostpet" element={<ReportLostPetPage />} />
+              <Route path="/viewpets" element={<ViewPetsPage />} />
             </Routes>
           </Router>
         </div>

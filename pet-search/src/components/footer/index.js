@@ -14,8 +14,9 @@ export default class Footer extends Component {
                   href="https://github.com/delarsen"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="no-underline "
                 >
-                  ArsenSuperGood.com
+                  GithubPage
                 </a>
               </div>
             </Navbar.Collapse>

@@ -3,161 +3,331 @@ import { Button, Col, Form, Image, InputGroup, Row } from "react-bootstrap";
 import paws from "../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
-import reactCSS from "reactcss";
-import { SketchPicker } from "react-color";
+import ImageUploader from "../image-uploader";
+import * as dayjs from "dayjs";
+import * as petService from "../../services/pet-service";
 
 let schema = yup.object().shape({
   age: yup.number().min(0).required(),
 });
 
-const dogs = ["corgi", "ovcharka"];
-const cats = ["black", "yellow"];
+const breeds = {
+  cat: [
+    "Siamese",
+    "Persian",
+    "Maine Coon",
+    "Ragdoll",
+    "Bengal",
+    "Abyssinian",
+    "Birman",
+    "Oriental Shorthair",
+    "Sphynx",
+    "Devon Rex",
+    "Himalayan",
+    "American Shorthair",
+  ],
+  dog: [
+    "Bulldog",
+    "Retriever",
+    "Poodles ",
+    "Beagles",
+    "Rottweiler",
+    "Yorkshire Terrier",
+    "Shetland Sheepdog",
+    "Corgi",
+    "Chihuahua",
+  ],
+  bunny: [
+    "Holland Lop",
+    "Mini Lop",
+    "Dutch",
+    "Lionhead",
+    "French Lop",
+    "Californian",
+    "Dwarf Papillon",
+    "Mini Rex",
+  ],
+  dontknow: [],
+};
+
 class ReportLostPetPage extends Component {
-  state = {
-    displayColorPicker: false,
-    color: {
-      r: "241",
-      g: "112",
-      b: "19",
-      a: "1",
-    },
+  constructor(props) {
+    super(props);
+    this.state = {
+      breedList: breeds.cat,
+      images: [],
+    };
+  }
+
+  handleImages = (images) => {
+    this.setState({ images: images });
   };
 
-  handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker });
+  onSubmitPet = (values) => {
+    const pet = {
+      type: values.typeOfPet,
+      breed:
+        !values.breed || values.breed === ""
+          ? breeds[values.typeOfPet].shift()
+          : values.breed,
+      gemder: values.gender,
+      age: values.age,
+      neutered: values.neutered,
+      color: values.color,
+      description: values.description,
+      date: values.date,
+      images: this.state.images,
+    };
+
+    petService.addLostPet(pet).then(() => {
+      window.location.href = "/";
+    });
   };
 
-  handleClose = () => {
-    this.setState({ displayColorPicker: false });
+  onChangePet = (e) => {
+    const pet = e.target.value;
+    this.setState({ breedList: breeds[pet] });
   };
 
-  handleChange = (color) => {
-    this.setState({ color: color.rgb });
-  };
-
-  // onChange = (e) => {
-  //   if ((e.target.value = "Dog")) {
-  //     this.setState;
-  //   }
-  // };
-
-  render() {
-    const styles = reactCSS({
-      default: {
-        color: {
-          width: "36px",
-          height: "14px",
-          borderRadius: "2px",
-          background: `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, ${this.state.color.a})`,
-        },
-        swatch: {
-          padding: "5px",
-          background: "#fff",
-          borderRadius: "1px",
-          boxShadow: "0 0 0 1px rgba(0,0,0,.1)",
-          display: "inline-block",
-          cursor: "pointer",
-        },
-        popover: {
-          position: "absolute",
-          zIndex: "2",
-        },
-        cover: {
-          position: "fixed",
-          top: "0px",
-          right: "0px",
-          bottom: "0px",
-          left: "0px",
-        },
-      },
+  renderBreedsOptions = () => {
+    const options = this.state.breedList.map((breed, index) => {
+      const value = breed.replaceAll(" ", "");
+      if (index === 0) {
+        return (
+          <option value={value} key={value}>
+            {breed}
+          </option>
+        );
+      }
+      return (
+        <option value={value} key={value}>
+          {breed}
+        </option>
+      );
     });
 
+    options.push(
+      <option value="dontknow" key="dontknow">
+        Don't know
+      </option>
+    );
+
+    return options;
+  };
+
+  render() {
     return (
       <Row className="w-full ">
+        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-7xl text-white font-light">
+          Report pet As Lost
+        </div>
+
         <div className="col-md-3">
           <img src={paws} className="h-720 mt-10" />
         </div>
-
         <Formik
           initialValues={{
+            typeOfPet: "cat",
             age: "",
+            breed: "",
+            gender: "male",
+            neutered: "yes",
+            color: "red",
+            description: "",
+            date: dayjs().format("YYYY-MM-DD"),
           }}
           validationSchema={schema}
+          onSubmit={this.onSubmitPet}
         >
-          {({ handleSubmit, handleChange, values, errors, onChange }) => (
+          {({ handleSubmit, handleChange, setFieldValue, values, errors }) => (
             <Form as={Col} noValidate>
-              <div className="mt-10">
-                <Form.Select>
-                  <option>Type of pet</option>
-                  <option value="1">Cat</option>
-                  <option value="2">Dog</option>
-                  <option value="3">Bunny</option>
-                </Form.Select>
+              <div className="text-base font-light mt-5 text-lg">
+                If you have lost your pet, fill out the form below, and caring
+                volunteers will help you bring your pet back home.
               </div>
-              <div>
-                <Form.Select>
-                  <option>Animal breed</option>
-                  <option value="1"></option>
-                  <option value="2"></option>
-                  <option value="3">No matches</option>
-                </Form.Select>
-              </div>
-              <div className="mt-10">
-                <label className="ml-7">Gender</label>
-                <label className="ml-32">Age</label>
-                <label className="ml-24">Castrated?</label>
-                <label className="ml-24">Main color of pet</label>
-                <div className="flex inline">
-                  <div className="flex inline-block">
-                    <Form.Check
-                      type="radio"
-                      label="male"
-                      className="mr-4 "
-                      name="gender"
-                    />
-                    <Form.Check type="radio" label="female" name="gender" />
-                  </div>
+              <Form.Group as={Col} className="mt-10">
+                <Form.Label>Type of pet</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Select
+                    placeholder="Type of pet"
+                    value={values.typeOfPet || ""}
+                    onChange={(e) => {
+                      this.onChangePet(e);
+                      handleChange("typeOfPet");
+                      setFieldValue("typeOfPet", e.target.value);
+                    }}
+                    isInvalid={!!errors.typeOfPet}
+                  >
+                    <option value="cat" key="cat">
+                      Cat
+                    </option>
+                    <option value="dog" key="dog">
+                      Dog
+                    </option>
+                    <option value="bunny" key="bunny">
+                      Bunny
+                    </option>
+                    <option value="dontknow" key="dontknow">
+                      Don't know
+                    </option>
+                  </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    {errors.typeOfPet}
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+              <Form.Group as={Col} className="mt-3">
+                <Form.Label>Animal breed</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Select
+                    placeholder="Animal breed"
+                    value={values.breed || ""}
+                    onChange={handleChange("breed")}
+                    isInvalid={!!errors.breed}
+                  >
+                    {this.renderBreedsOptions()}
+                  </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    {errors.breed}
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+              <div className="max-w-full flex mt-3">
+                <Form.Group as={Col} className="mr-3">
+                  <Form.Label>What sex is the pet?</Form.Label>
                   <InputGroup hasValidation>
-                    <div className="w-16 flex inline-block ml-12">
-                      <Form.Control
-                        type="number"
-                        placeholder="Age"
-                        min="0"
-                        isInvalid={!!errors.age}
-                      />
-                    </div>
+                    <Form.Select
+                      placeholder="Gender"
+                      value={values.gender || ""}
+                      onChange={handleChange("gender")}
+                      isInvalid={!!errors.gender}
+                    >
+                      <option value="male" key="male">
+                        Male
+                      </option>
+                      <option value="female" key="female">
+                        Female
+                      </option>
+                      <option value="dontknow" key="dontknow">
+                        Don't know
+                      </option>
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid">
+                      {errors.gender}
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Form.Group>
+                <Form.Group as={Col} className="mr-3">
+                  <Form.Label>Age (years)</Form.Label>
+                  <InputGroup hasValidation>
+                    <Form.Control
+                      type="number"
+                      placeholder="Age"
+                      value={values.age || ""}
+                      name="Age"
+                      onChange={handleChange("age")}
+                      isInvalid={!!errors.age}
+                      step={0.1}
+                    />
                     <Form.Control.Feedback type="invalid">
                       {errors.age}
                     </Form.Control.Feedback>
                   </InputGroup>
-
-                  <div className="flex inline-block  ">
-                    <Form.Check
-                      type="radio"
-                      label="yes"
-                      className="mr-4 "
-                      name="castrated"
-                    />
-                    <Form.Check type="radio" label="no" name="castrated" />
-                  </div>
-                </div>
-                <div>
-                  <Form.Group
-                    className="mb-3"
-                    controlId="exampleForm.ControlTextarea1"
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Is the pet neutered?</Form.Label>
+                  <InputGroup hasValidation>
+                    <Form.Select
+                      placeholder="Neutered"
+                      value={values.neutered || ""}
+                      onChange={handleChange("neutered")}
+                      isInvalid={!!errors.neutered}
+                    >
+                      <option value="yes" key="yes">
+                        Yes
+                      </option>
+                      <option value="no" key="no">
+                        No
+                      </option>
+                      <option value="dontknow" key="dontknow">
+                        Don't know
+                      </option>
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid">
+                      {errors.neutered}
+                    </Form.Control.Feedback>
+                  </InputGroup>
+                </Form.Group>
+              </div>
+              <Form.Group as={Col} className="mt-3">
+                <Form.Label>Color</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Select
+                    placeholder="Color"
+                    value={values.color || ""}
+                    onChange={handleChange("color")}
+                    isInvalid={!!errors.color}
                   >
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control as="textarea" rows={4} />
-                  </Form.Group>
-                </div>
+                    <option className="bg-red-400" value="red" key="red">
+                      Red
+                    </option>
+                    <option value="black" key="black">
+                      Black
+                    </option>
+                  </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    {errors.color}
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+              <Form.Group as={Col} className="mt-3">
+                <Form.Label>Description</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    as="textarea"
+                    rows={4}
+                    placeholder="Description"
+                    value={values.description || ""}
+                    name="Description"
+                    onChange={handleChange("description")}
+                    isInvalid={!!errors.description}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.description}
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+              <Form.Group as={Col} className="mt-3">
+                <Form.Label>When the pet was found?</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    type="date"
+                    placeholder="Date"
+                    value={values.date || ""}
+                    name="Date"
+                    onChange={handleChange("date")}
+                    isInvalid={!!errors.date}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.date}
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+              <ImageUploader handleImages={this.handleImages}></ImageUploader>
+              <div className="mt-10">
                 <div className="float-right">
-                  <Button type="submit">Report pet</Button>
+                  <Button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="mb-20"
+                  >
+                    Report pet
+                  </Button>
                 </div>
               </div>
             </Form>
           )}
         </Formik>
-
         <div className="col-md-3 flex flex-row-reverse">
           <img src={paws} className="h-720 mt-10" />
         </div>
