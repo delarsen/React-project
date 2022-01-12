@@ -8,7 +8,7 @@ export default class Footer extends Component {
         <Navbar bg="light" expand="lg" sticky="bottom" className="h-16">
           <Container>
             <Navbar.Collapse className="justify-content-end">
-              <div className="footer-copyright text-center py-3">
+              <div className="footer-copyright text-center py-3 ">
                 © 2020 Copyright:
                 <a
                   href="https://github.com/delarsen"

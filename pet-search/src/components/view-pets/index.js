@@ -10,20 +10,20 @@ class ViewPetsPage extends Component {
           Search our site for missing or found pets:
         </div>
         <div className="w-full h-48 mb-8">
-          <h2 className="font-light text-inherit text-6xl text-center mt-32 ">
+          <h2 className="font-light text-inherit text-6xl text-center mt-32 ml-24">
             Register your missing pet here:
           </h2>
           <Button
             type="button"
-            className="center ml-[780px] mt-2 "
+            className="center relative left-2/4 mt-3 "
             size="lg"
             href="/reportlostpet"
           >
-            <span className="font-light">Register</span>
+            <span className="font-light ">Register</span>
           </Button>
         </div>
-        <div className="w-full h-72 bg-slate-100 flex space-x-96 ">
-          <span className="ml-80 mt-24 font-light">
+        <div className="w-full h-96 bg-slate-100 flex space-x-96 justify-center">
+          <span className="ml-36 mt-28 font-light ">
             <h3 className="font-light">
               <b>Missing</b> Pets
             </h3>
@@ -35,7 +35,7 @@ class ViewPetsPage extends Component {
             </Button>
           </span>
 
-          <span className="mt-24 font-light">
+          <span className="mt-28 font-light">
             <h3 className="font-light">
               <b>Found</b> Pets
             </h3>
