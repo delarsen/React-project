@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/pet-search">
+    <BrowserRouter basename="/React-project">
       <App />
     </BrowserRouter>
   </React.StrictMode>,

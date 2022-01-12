@@ -10,19 +10,19 @@ export default class RouteButtons extends Component {
         <RouteButton
           text="I am the owner of a missing pet."
           img={mainimg1}
-          href="/pet-search/reportlostpet"
+          href="/React-project/reportlostpet"
           buttonName="Missing"
         />
         <RouteButton
           text="I have found someones pet"
           img={mainimg2}
-          href="/pet-search/reportfoundpet"
+          href="/React-projecth/reportfoundpet"
           buttonName="Found"
         />
         <RouteButton
           text="View found and lost pets"
           img={mainimg3}
-          href="/pet-search/viewpets"
+          href="/React-project/viewpets"
           buttonName="View pets"
         />
       </div>

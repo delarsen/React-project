@@ -46,7 +46,7 @@ export default class Header extends Component {
       <div>
         <Navbar bg="light" expand="lg" className="h-14">
           <Container>
-            <Navbar.Brand href="/pet-search/">Animal search</Navbar.Brand>
+            <Navbar.Brand href="/React-project/">Animal search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
               id="basic-navbar-nav"
@@ -66,15 +66,15 @@ export default class Header extends Component {
                     id="basic-nav-dropdown"
                     className="ml-12"
                   >
-                    <NavDropdown.Item href="/pet-search/reportlostpet">
+                    <NavDropdown.Item href="/React-project/reportlostpet">
                       Report lost pet
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/pet-search/reportfoundpet">
+                    <NavDropdown.Item href="/React-project/reportfoundpet">
                       Register found pet
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/pet-search/viewpets">
+                    <NavDropdown.Item href="/React-project/viewpets">
                       View pets
                     </NavDropdown.Item>
                   </NavDropdown>

@@ -34,7 +34,7 @@ function RegisterPage() {
           email: values.email,
           password: values.password,
         })
-        .then(() => (window.location.href = "/pet-search/login"));
+        .then(() => (window.location.href = "/React-project/login"));
     });
   };
 
@@ -151,7 +151,7 @@ function RegisterPage() {
             <div className="max-w-full flex items-center">
               <Form.Group as={Col} md="8">
                 <div>
-                  Have an account? <a href="/pet-search/login">Log in</a>
+                  Have an account? <a href="/React-project/login">Log in</a>
                 </div>
               </Form.Group>
               <Form.Group as={Col} md="4" className="text-right">

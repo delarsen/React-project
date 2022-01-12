@@ -26,7 +26,7 @@ export default class LoginButton extends Component {
   logOut() {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("user");
-    window.location.href = "/pet-search/";
+    window.location.href = "/React-project/";
   }
 
   renderDropdownMenu() {
@@ -44,7 +44,7 @@ export default class LoginButton extends Component {
     }
     return (
       <Dropdown.Menu>
-        <Dropdown.Item eventKey="1" href="/pet-search/login">
+        <Dropdown.Item eventKey="1" href="/React-project/login">
           Log in
         </Dropdown.Item>
       </Dropdown.Menu>
