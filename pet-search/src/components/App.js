@@ -20,12 +20,14 @@ export default class App extends Component {
         <Header />
         <div className="main-content">
           <HashRouter basename="/">
-            <Route path="/" component={<MainPage />} />
-            <Route path="/login" component={<LoginPage />} />
-            <Route path="/register" component={<RegisterPage />} />
-            <Route path="/reportfoundpet" component={<ReportFoundPetPage />} />
-            <Route path="/reportlostpet" component={<ReportLostPetPage />} />
-            <Route path="/viewpets" component={<ViewPetsPage />} />
+            <Routes>
+              <Route path="/" component={<MainPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
+              <Route path="/reportlostpet" element={<ReportLostPetPage />} />
+              <Route path="/viewpets" element={<ViewPetsPage />} />
+            </Routes>
           </HashRouter>
         </div>
         <Footer />
