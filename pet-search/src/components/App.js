@@ -19,7 +19,7 @@ export default class App extends Component {
       <>
         <Header />
         <div className="main-content">
-          <HashRouter basename="/">
+          <HashRouter>
             <Routes>
               <Route path="/" component={<MainPage />} />
               <Route path="/login" element={<LoginPage />} />
