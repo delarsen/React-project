@@ -20,7 +20,7 @@ export default class App extends Component {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
             <Route path="/reportlostpet" element={<ReportLostPetPage />} />
-            <Route path="/React-project/viewpets" element={<ViewPetsPage />} />
+            <Route path="/viewpets" element={<ViewPetsPage />} />
           </Routes>
         </div>
         <Footer />
