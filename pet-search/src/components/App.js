@@ -19,7 +19,7 @@ export default class App extends Component {
       <>
         <Header />
         <div className="main-content">
-          <HashRouter basename="/">
+          <HashRouter basename="/joonline">
             <Routes>
               <Route exact path="/" component={<MainPage />} />
               <Route path="/login" component={<LoginPage />} />
