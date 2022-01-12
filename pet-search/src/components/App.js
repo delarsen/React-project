@@ -9,11 +9,6 @@ import ReportFoundPetPage from "./report-found-pet";
 import ReportLostPetPage from "./report-lost-pet";
 import ViewPetsPage from "./view-pets";
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
 export default class App extends Component {
   render() {
     return (
@@ -21,13 +16,8 @@ export default class App extends Component {
         <Header />
         <div className="main-content">
           <Router basename="/">
-            <ul>
-              <li>
-                <Link to="/login">Home</Link>
-              </li>
-            </ul>
             <Route exact path="/" element={<MainPage />} />
-            <Route path="/login" component={Home} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
             <Route path="/reportlostpet" element={<ReportLostPetPage />} />
