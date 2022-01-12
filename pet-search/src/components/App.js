@@ -22,10 +22,7 @@ export default class App extends Component {
           <HashRouter>
             <Routes>
               <Route path="/" element={<MainPage />} />
-              <Route
-                path="https://delarsen.github.io/React-project/login"
-                element={<LoginPage />}
-              />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
               <Route path="/reportlostpet" element={<ReportLostPetPage />} />
