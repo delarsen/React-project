@@ -6,15 +6,25 @@ import mainimg3 from "../../images/pet-carrier.jpg";
 export default class RouteButtons extends Component {
   render() {
     return (
-      <div className="flex justify-around">
+      <div className="flex justify-around mr-10">
         <RouteButton
-          text="Missing"
+          text="I am the owner of a missing pet."
           img={mainimg1}
           href="/reportlostpet"
-          className="rounded-full"
+          buttonName="Missing"
         />
-        <RouteButton text="Found" img={mainimg2} href="/reportfoundpet" />
-        <RouteButton text="View pets" img={mainimg3} href="/viewpets" />
+        <RouteButton
+          text="I have found someones pet"
+          img={mainimg2}
+          href="/reportfoundpet"
+          buttonName="Found"
+        />
+        <RouteButton
+          text="View found and lost pets"
+          img={mainimg3}
+          href="/viewpets"
+          buttonName="View pets"
+        />
       </div>
     );
   }
