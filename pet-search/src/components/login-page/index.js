@@ -35,7 +35,7 @@ function LoginPage() {
           surname: user.surname,
         })
       );
-      window.location.href = "/";
+      window.location.href = "/pet-search/";
     });
   };
 
@@ -96,7 +96,8 @@ function LoginPage() {
             <div className="max-w-full flex items-center">
               <Form.Group as={Col} md="8">
                 <div>
-                  Don't have an account? <a href="/register">Register</a>
+                  Don't have an account?{" "}
+                  <a href="/pet-search/register">Register</a>
                 </div>
               </Form.Group>
               <Form.Group as={Col} md="4" className="text-right">

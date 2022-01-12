@@ -80,7 +80,7 @@ class ReportFoundPetPage extends Component {
     };
 
     petService.addFoundPet(pet).then(() => {
-      window.location.href = "/";
+      window.location.href = "/pet-search/";
     });
   };
 

@@ -17,7 +17,7 @@ class ViewPetsPage extends Component {
             type="button"
             className="center relative left-2/4 mt-3 "
             size="lg"
-            href="/reportlostpet"
+            href="/pet-search/reportlostpet"
           >
             <span className="font-light ">Register</span>
           </Button>
