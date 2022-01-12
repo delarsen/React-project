@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import MainPage from "./main-page";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  HashRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
 import LoginPage from "./login-page";
 import RegisterPage from "./register-page";
 import ReportFoundPetPage from "./report-found-pet";
@@ -14,7 +19,7 @@ export default class App extends Component {
       <>
         <Header />
         <div className="main-content">
-          <Router>
+          <HashRouter>
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/login" element={<LoginPage />} />
@@ -23,7 +28,7 @@ export default class App extends Component {
               <Route path="/reportlostpet" element={<ReportLostPetPage />} />
               <Route path="/viewpets" element={<ViewPetsPage />} />
             </Routes>
-          </Router>
+          </HashRouter>
         </div>
         <Footer />
       </>
