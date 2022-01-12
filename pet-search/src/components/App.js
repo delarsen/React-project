@@ -21,7 +21,7 @@ export default class App extends Component {
         <div className="main-content">
           <HashRouter>
             <Routes>
-              <Route path="/" element={<MainPage />} />
+              <Route path="/" component={<MainPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
