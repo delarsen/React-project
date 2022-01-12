@@ -14,14 +14,14 @@ export default class App extends Component {
       <>
         <Header />
         <div className="main-content">
-          <Routes>
+          <Router>
             <Route exact path="/" element={<MainPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
             <Route path="/reportlostpet" element={<ReportLostPetPage />} />
             <Route path="/viewpets" element={<ViewPetsPage />} />
-          </Routes>
+          </Router>
         </div>
         <Footer />
       </>
