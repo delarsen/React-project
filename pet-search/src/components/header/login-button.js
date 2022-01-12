@@ -33,7 +33,7 @@ export default class LoginButton extends Component {
     if (this.props.isLoggedIn) {
       return (
         <Dropdown.Menu>
-          <Dropdown.Item eventKey="1" href="/account">
+          <Dropdown.Item eventKey="1" href="/React-project/account">
             Account: {this.props.user?.name}
           </Dropdown.Item>
           <Dropdown.Item eventKey="2" onClick={() => this.logOut()}>
