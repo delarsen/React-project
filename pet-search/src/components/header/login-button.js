@@ -44,7 +44,10 @@ export default class LoginButton extends Component {
     }
     return (
       <Dropdown.Menu>
-        <Dropdown.Item eventKey="1" href="/login">
+        <Dropdown.Item
+          eventKey="1"
+          href="https://delarsen.github.io/React-project/login"
+        >
           Log in
         </Dropdown.Item>
       </Dropdown.Menu>
