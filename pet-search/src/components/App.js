@@ -19,9 +19,9 @@ export default class App extends Component {
       <>
         <Header />
         <div className="main-content">
-          <HashRouter>
+          <HashRouter basename="/">
             <Routes>
-              <Route path="/" component={<MainPage />} />
+              <Route exact path="/" component={<MainPage />} />
               <Route path="/login" component={<LoginPage />} />
               <Route path="/register" component={<RegisterPage />} />
               <Route
