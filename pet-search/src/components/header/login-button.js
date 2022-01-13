@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Dropdown, Image } from "react-bootstrap";
 import login from "../../images/login-icon.jpg";
-
+import { Link } from "react-router-dom";
+import ReportLostPetPage from "../report-lost-pet";
 const CustomToggle = React.forwardRef(({ onClick }, ref) => {
   return (
     <Image
@@ -44,9 +45,11 @@ export default class LoginButton extends Component {
     }
     return (
       <Dropdown.Menu>
-        <Dropdown.Item eventKey="1" href="/React-project/login">
-          Log in
-        </Dropdown.Item>
+        <Link to={<ReportLostPetPage />}>
+          <Dropdown.Item eventKey="1" href="/React-project/login">
+            Log in
+          </Dropdown.Item>
+        </Link>
       </Dropdown.Menu>
     );
   }
