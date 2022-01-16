@@ -6,24 +6,24 @@ class ViewPetsPage extends Component {
   render() {
     return (
       <div>
-        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-7xl text-white font-light">
+        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-3xl text-white font-light sm:text-7xl">
           Search our site for missing or found pets:
         </div>
         <div className="w-full h-48 mb-8">
-          <h2 className="font-light text-inherit text-6xl text-center mt-32 ml-24">
+          <h2 className="font-light text-inherit text-3xl text-center mt-32  sm:text-6xl">
             Register your missing pet here:
           </h2>
           <Button
             type="button"
-            className="center relative left-2/4 mt-3 "
+            className=" relative left-1/2 mt-3 "
             size="lg"
             href="/React-project/reportlostpet"
           >
             <span className="font-light ">Register</span>
           </Button>
         </div>
-        <div className="w-full h-96 bg-slate-100 flex space-x-96 justify-center">
-          <span className="ml-36 mt-28 font-light ">
+        <div className="w-full h-96 bg-slate-100 flex  justify-center flex-col  md:flex-row  md:space-x-64">
+          <span className=" mt-28 font-light ">
             <h3 className="font-light">
               <b>Missing</b> Pets
             </h3>
@@ -35,7 +35,7 @@ class ViewPetsPage extends Component {
             </Button>
           </span>
 
-          <span className="mt-28 font-light">
+          <span className="mt-28 font-light ">
             <h3 className="font-light">
               <b>Found</b> Pets
             </h3>
