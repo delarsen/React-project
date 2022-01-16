@@ -41,8 +41,8 @@ function LoginPage() {
 
   return (
     <Row className="w-full">
-      <div className="col-md-3">
-        <img src={paws} className="h-720 mt-10" />
+      <div className="col-md-3 col-sm-2">
+        <img src={paws} className="h-720 mt-10 hidden md:block" />
       </div>
       <Formik
         initialValues={{
@@ -109,8 +109,8 @@ function LoginPage() {
           </Form>
         )}
       </Formik>
-      <div className="col-md-3 flex flex-row-reverse">
-        <img src={paws} className="h-720 mt-10" />
+      <div className="col-md-3 col-sm-2 flex flex-row-reverse">
+        <img src={paws} className="h-720 mt-10 hidden md:block" />
       </div>
     </Row>
   );

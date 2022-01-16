@@ -44,13 +44,13 @@ export default class Header extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg" className="h-14">
+        <Navbar collapseOnSelect bg="light" expand="lg">
           <Container>
             <Navbar.Brand href="/React-project/">Animal search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
               id="basic-navbar-nav"
-              className="justify-content-end"
+              className="justify-content-end z-50"
             >
               <Form className="d-flex ">
                 <FormControl
@@ -60,11 +60,11 @@ export default class Header extends Component {
                   aria-label="Search"
                 />
 
-                <Nav className="me-auto">
+                <Nav className="">
                   <NavDropdown
                     title="Menu"
                     id="basic-nav-dropdown"
-                    className="ml-12"
+                    className="ml-12 custom-dropdown"
                   >
                     <NavDropdown.Item href="/React-project/reportlostpet">
                       Report lost pet

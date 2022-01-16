@@ -27,3 +27,9 @@ code {
 .img-preview .img-thumbnail {
   height: 8rem;
 }
+
+.custom-dropdown .dropdown-menu.show {
+  position: absolute !important;
+  right: 0;
+  left: auto;
+}

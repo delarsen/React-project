@@ -11,7 +11,7 @@ const CustomToggle = React.forwardRef(({ onClick }, ref) => {
         e.preventDefault();
         onClick(e);
       }}
-      className="w-9 min-w-fit h-9 ml-5 cursor-pointer"
+      className="w-7 md:w-9 min-w-fit h-7 md:h-9 ml-5 cursor-pointer"
       roundedCircle
     />
   );
@@ -53,7 +53,7 @@ export default class LoginButton extends Component {
   render() {
     return (
       <>
-        <Dropdown>
+        <Dropdown className="self-center mr-4 custom-dropdown">
           <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" />
           {this.renderDropdownMenu()}
         </Dropdown>
