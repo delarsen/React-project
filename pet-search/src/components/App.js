@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import MainPage from "./main-page";
-import { HashRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import LoginPage from "./login-page";
 import RegisterPage from "./register-page";
 import ReportFoundPetPage from "./report-found-pet";
@@ -12,7 +12,7 @@ import ViewPetsPage from "./view-pets";
 export default class App extends Component {
   render() {
     return (
-      <Router basename="/React-project">
+      <BrowserRouter basename="/React-project">
         <Header />
         <div className="main-content">
           <Routes>
@@ -25,7 +25,7 @@ export default class App extends Component {
           </Routes>
         </div>
         <Footer />
-      </Router>
+      </BrowserRouter>
     );
   }
 }
