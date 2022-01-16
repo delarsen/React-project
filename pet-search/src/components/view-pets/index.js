@@ -42,7 +42,7 @@ class ViewPetsPage extends Component {
             <p className="text-lg">
               Look through pets reported found by members of the public.
             </p>
-            <Button>
+            <Button href="/React-project/viewfoundpets">
               <span className="font-light">View Found</span>
             </Button>
           </span>

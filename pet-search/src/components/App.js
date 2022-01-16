@@ -8,11 +8,11 @@ import RegisterPage from "./register-page";
 import ReportFoundPetPage from "./report-found-pet";
 import ReportLostPetPage from "./report-lost-pet";
 import ViewPetsPage from "./view-pets";
-
+import ViewFoundPetsPage from "./viewfoundpets";
 export default class App extends Component {
   render() {
     return (
-      <Router>
+      <>
         <Header />
         <div className="main-content">
           <Routes>
@@ -22,10 +22,11 @@ export default class App extends Component {
             <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
             <Route path="/reportlostpet" element={<ReportLostPetPage />} />
             <Route path="/viewpets" element={<ViewPetsPage />} />
+            <Route path="/viewfoundpets" element={<ViewFoundPetsPage />} />
           </Routes>
         </div>
         <Footer />
-      </Router>
+      </>
     );
   }
 }
