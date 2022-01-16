@@ -12,7 +12,7 @@ import ViewPetsPage from "./view-pets";
 export default class App extends Component {
   render() {
     return (
-      <>
+      <Router basename="/React-project">
         <Header />
         <div className="main-content">
           <Routes>
@@ -25,7 +25,7 @@ export default class App extends Component {
           </Routes>
         </div>
         <Footer />
-      </>
+      </Router>
     );
   }
 }
