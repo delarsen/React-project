@@ -12,7 +12,7 @@ import ViewPetsPage from "./view-pets";
 export default class App extends Component {
   render() {
     return (
-      <Router basename="/React-project">
+      <Router>
         <Header />
         <div className="main-content">
           <Routes>
