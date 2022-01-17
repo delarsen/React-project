@@ -15,15 +15,15 @@ class ViewPetsPage extends Component {
           </h2>
           <Button
             type="button"
-            className=" relative left-1/2 mt-3 "
+            className=" relative left-1/3 md:left-1/2  mt-3 "
             size="lg"
             href="/React-project/reportlostpet"
           >
             <span className="font-light ">Register</span>
           </Button>
         </div>
-        <div className="w-full h-96 bg-slate-100 flex  justify-center flex-col  md:flex-row  md:space-x-64">
-          <span className=" mt-28 font-light ">
+        <div className="w-full h-96 bg-slate-100 flex  justify-center flex-col   md:flex-row  md:space-x-64">
+          <span className=" mt-8 font-light md:mt-28">
             <h3 className="font-light">
               <b>Missing</b> Pets
             </h3>
@@ -35,7 +35,7 @@ class ViewPetsPage extends Component {
             </Button>
           </span>
 
-          <span className="mt-28 font-light ">
+          <span className="mt-8 font-light md:mt-28">
             <h3 className="font-light">
               <b>Found</b> Pets
             </h3>
