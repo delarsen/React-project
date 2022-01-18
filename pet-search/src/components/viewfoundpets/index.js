@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import * as PetService from "../../services/pet-service";
 import { Col, Button } from "react-bootstrap";
+import axios from "axios";
+import * as petService from "../../services/pet-service";
+import PetCard from "./pet-card.js";
 
 class ViewFoundPetsPage extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    return <div className=""></div>;
+    return <PetCard />;
   }
 }
 

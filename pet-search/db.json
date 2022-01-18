@@ -25,7 +25,20 @@
       "color": "red",
       "description": "aaa",
       "date": "2022-01-11",
-      "images": []
+      "images": [],
+      "id": 1
+    },
+    {
+      "type": "dog",
+      "breed": "Bulldog",
+      "gender": "male",
+      "age": 4,
+      "neutered": "yes",
+      "color": "red",
+      "description": "aaaaa",
+      "date": "2022-01-18",
+      "images": [],
+      "id": 2
     }
   ],
   "lostpets": [
