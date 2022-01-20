@@ -9,13 +9,13 @@ class ViewPetsPage extends Component {
         <div className="w-full h-48 bg-amber-400 text-center pt-12 text-3xl text-white font-light sm:text-7xl">
           Search our site for missing or found pets:
         </div>
-        <div className="w-full h-48 mb-8">
+        <div className="w-full h-48 mb-8 text-center">
           <h2 className="font-light text-inherit text-3xl text-center mt-32  sm:text-6xl">
             Register your missing pet here:
           </h2>
           <Button
             type="button"
-            className=" relative left-1/3 md:left-1/2  mt-3 "
+            className="  mt-3 "
             size="lg"
             href="/React-project/reportlostpet"
           >

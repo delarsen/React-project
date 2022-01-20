@@ -1,5 +1,12 @@
 import React, { Component, useRef } from "react";
-import { Button, Col, Form, Image, InputGroup } from "react-bootstrap";
+import {
+  Button,
+  CloseButton,
+  Col,
+  Form,
+  Image,
+  InputGroup,
+} from "react-bootstrap";
 
 export default class ImageUploader extends Component {
   constructor(props) {
@@ -67,6 +74,7 @@ export default class ImageUploader extends Component {
           <Button variant="dark" as={Col} onClick={this.handleUpload}>
             Upload images
           </Button>
+
           <div className="text-red-600 mt-2">{this.state.errorMessage}</div>
         </Form>
         <div className="img-preview inline-flex">{this.renderImages()}</div>

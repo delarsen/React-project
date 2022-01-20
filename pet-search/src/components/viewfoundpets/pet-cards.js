@@ -25,7 +25,8 @@ export default class PetCards extends Component {
                 "{pet.breed}" {pet.type}
               </Card.Title>
               <Card.Text>
-                Gender: {pet.gender}, Age: {pet.age}, Neutered:
+                Found on {pet.date}, Gender: {pet.gender}, Age: {pet.age},
+                Neutered:
                 {pet.neutered} , Color: {pet.color}.
               </Card.Text>
               <Button variant="primary">View more info</Button>

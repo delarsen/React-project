@@ -1,5 +1,13 @@
 import { Component, useState } from "react";
-import { Button, Col, Form, Image, InputGroup, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Form,
+  Image,
+  InputGroup,
+  Row,
+  CloseButton,
+} from "react-bootstrap";
 import paws from "../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -316,6 +324,7 @@ class ReportFoundPetPage extends Component {
                 </InputGroup>
               </Form.Group>
               <ImageUploader handleImages={this.handleImages}></ImageUploader>
+
               <div className="mt-10">
                 <div className="float-right">
                   <Button
