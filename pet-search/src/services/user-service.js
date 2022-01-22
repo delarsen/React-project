@@ -2,7 +2,7 @@ import axios from "axios";
 
 //npx json-server -p 3001 -w db.json
 
-const apiBase = "https://pet-search-server.herokuapp.com/";
+const apiBase = "https://pet-search-server.herokuapp.com";
 //const apiBase = "http://localhost:3001";
 const usersEndpoint = "/users";
 
