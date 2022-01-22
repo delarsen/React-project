@@ -3,7 +3,7 @@ import axios from "axios";
 //npx json-server -p 3001 -w db.json
 
 const apiBase =
-  "https://github.com/delarsen/React-project-json/blob/main/db.json";
+  "https://my-json-server.typicode.com/delarsen/React-project-json";
 
 const usersEndpoint = "/users";
 
