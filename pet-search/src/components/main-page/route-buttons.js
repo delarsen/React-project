@@ -3,6 +3,8 @@ import RouteButton from "./route-button";
 import mainimg1 from "../../images/bone.png";
 import mainimg2 from "../../images/bowl.png";
 import mainimg3 from "../../images/pet-carrier.jpg";
+import foundpet from "../../images/mainscreen3.png";
+import viewpet from "../../images/mainscreen1.png";
 export default class RouteButtons extends Component {
   render() {
     return (
@@ -15,13 +17,13 @@ export default class RouteButtons extends Component {
         />
         <RouteButton
           text="I have found someones pet"
-          img={mainimg2}
+          img={foundpet}
           href="/React-project/reportfoundpet"
           buttonName="Found"
         />
         <RouteButton
           text="View found and lost pets"
-          img={mainimg3}
+          img={viewpet}
           href="/React-project/viewpets"
           buttonName="View pets"
         />
