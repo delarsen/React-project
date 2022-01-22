@@ -4,17 +4,17 @@ import { Button, Image } from "react-bootstrap";
 export default class RouteButton extends Component {
   render() {
     return (
-      <div className=" text-center">
+      <div className=" text-center mt-10 md:mt-0">
         <Image
           src={this.props.img}
-          className="h-20 md:h-32 w-20 md:w-32 m-auto border-4 border-neutral-700 "
+          className="h-16 md:h-20 w-16 md:w-20 m-auto  "
           roundedCircle
         />
         <div className="mt-2 mb-2 max-w-sm text-md font-base">
           {this.props.text}
         </div>
         <Button
-          variant="primary"
+          variant="outline-dark"
           className="text-md font-base"
           href={this.props.href}
         >
