@@ -3,15 +3,14 @@ import { Button, Card } from "react-bootstrap";
 import { render } from "react-dom";
 import * as petService from "../../services/pet-service";
 import imgPlaceholder from "../../images/img-placeholder.png";
-
+import imgBackground from "../../images/animals-bc.jpg";
 export default class PetCards extends Component {
   renderPets() {
-    console.log(this.props.pets);
     return this.props.pets?.map((pet) => {
       return (
-        <div className="">
+        <div>
           <Card
-            style={{ width: "90%", height: "80%", margin: "10px 0 0 20px" }}
+            style={{ width: "90%", height: "80%", margin: "10px 0 0px 20px" }}
             key={pet.id}
           >
             <Card.Img
@@ -20,16 +19,24 @@ export default class PetCards extends Component {
               style={{ height: "55%" }}
               className="object-cover"
             />
-            <Card.Body>
-              <Card.Title>
+            <Card.Body className="text-center">
+              <Card.Title className="text-center text-xl">
                 "{pet.breed}" {pet.type}
               </Card.Title>
-              <Card.Text>
-                Found on {pet.date}, Gender: {pet.gender}, Age: {pet.age},
-                Neutered:
-                {pet.neutered} , Color: {pet.color}.
+              <Card.Text className="text-lg text-center">
+                Gender: {pet.gender}, Age: {pet.age}. <br />
+                Neutered: {pet.neutered}, Color: {pet.color}.
               </Card.Text>
-              <Button variant="primary">View more info</Button>
+
+              <Button variant="primary" className="text-center">
+                View more info
+              </Button>
+              <br />
+              <br />
+              <br />
+              <Card.Text className="text-left text-sm md:text-base ">
+                Found on {pet.date}
+              </Card.Text>
             </Card.Body>
           </Card>
         </div>
@@ -40,7 +47,10 @@ export default class PetCards extends Component {
   render() {
     return (
       <>
-        <div className=" grid  grid-rows-3 grid-cols-3 ">
+        <div
+          className=" grid  grid-rows-3 grid-cols-3 "
+          style={{ backgroundImage: `url(${imgBackground})` }}
+        >
           {this.renderPets()}
         </div>
       </>

@@ -15,7 +15,7 @@ class ViewPetsPage extends Component {
           </h2>
           <Button
             type="button"
-            className="  mt-3 "
+            className=" rounded-none  mt-3 "
             size="lg"
             href="/React-project/reportlostpet"
           >

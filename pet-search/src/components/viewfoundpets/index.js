@@ -21,7 +21,7 @@ class ViewFoundPetsPage extends Component {
   render() {
     return (
       <div className="flex space-between">
-        <div className="w-7/12 min-h-full bg-gray-300">
+        <div className="w-7/12 min-h-full bg-gray-100">
           <h4 className="text-center font-bold mt-10">Refine Results</h4>
           <div className="text-lg ">
             Showing {this.state.pets.length} results.
@@ -29,7 +29,7 @@ class ViewFoundPetsPage extends Component {
           <div>
             <label>Type of pet</label>
             <br />
-            <select value="all" className="w-48 ">
+            <select defaultValue="all" className="w-48 ">
               <option value="cat">cat</option>
               <option value="dog">dog</option>
               <option value="bunny">bunny</option>

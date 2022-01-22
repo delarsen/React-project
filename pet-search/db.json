@@ -93,6 +93,18 @@
       "date": "2022-01-11",
       "images": [],
       "id": 1
+    },
+    {
+      "type": "bunny",
+      "breed": "MiniRex",
+      "gemder": "female",
+      "age": 4.5,
+      "neutered": "yes",
+      "color": "black",
+      "description": "aaa",
+      "date": "2022-01-09",
+      "images": [],
+      "id": 2
     }
   ]
 }

@@ -1,8 +1,9 @@
 import axios from "axios";
 
 //npx json-server -p 3001 -w db.json
-
-const apiBase = "http://localhost:3001";
+const apiBase =
+  "https://github.com/delarsen/React-project-json/blob/main/db.json";
+//const apiBase = "http://localhost:3001";
 
 const foundPetsEndpoint = "/foundpets";
 const lostPetsEndpoint = "/lostpets";

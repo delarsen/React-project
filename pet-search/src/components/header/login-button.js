@@ -1,8 +1,24 @@
 import React, { Component } from "react";
 import { Dropdown, Image } from "react-bootstrap";
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import login from "../../images/login-icon.jpg";
-
+import quit from "../../images/quit.png";
+let isLoggedIn = true;
 const CustomToggle = React.forwardRef(({ onClick }, ref) => {
+  return (
+    <Image
+      src={quit}
+      ref={ref}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+      }}
+      className="w-7 md:w-9 min-w-fit h-7 md:h-9 ml-5 cursor-pointer  "
+      roundedCircle
+    />
+  );
+});
+const CustomToggleUser = React.forwardRef(({ onClick }, ref) => {
   return (
     <Image
       src={login}
@@ -11,7 +27,7 @@ const CustomToggle = React.forwardRef(({ onClick }, ref) => {
         e.preventDefault();
         onClick(e);
       }}
-      className="w-7 md:w-9 min-w-fit h-7 md:h-9 ml-5 cursor-pointer"
+      className="w-7 md:w-9 min-w-fit h-7 md:h-9 ml-5 cursor-pointer "
       roundedCircle
     />
   );
@@ -44,7 +60,11 @@ export default class LoginButton extends Component {
     }
     return (
       <Dropdown.Menu>
-        <Dropdown.Item eventKey="1" href="/React-project/login">
+        <Dropdown.Item
+          eventKey="1"
+          href="/React-project/login"
+          onClick={() => this.logIn()}
+        >
           Log in
         </Dropdown.Item>
       </Dropdown.Menu>
@@ -54,7 +74,10 @@ export default class LoginButton extends Component {
     return (
       <>
         <Dropdown className="self-center mr-4 custom-dropdown">
-          <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" />
+          <Dropdown.Toggle
+            as={this.props.isLoggedIn ? CustomToggle : CustomToggleUser}
+            id="dropdown-custom-components"
+          />
           {this.renderDropdownMenu()}
         </Dropdown>
       </>
