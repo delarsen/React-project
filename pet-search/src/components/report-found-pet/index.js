@@ -126,11 +126,11 @@ class ReportFoundPetPage extends Component {
   render() {
     return (
       <Row className="w-full ">
-        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-7xl text-white font-light">
+        <div className="w-full h-48 bg-amber-400 text-center pt-20 md:pt-12 text-3xl text-white font-light sm:text-5xl md:text-7xl">
           Report pet As Found
         </div>
 
-        <div className="col-md-3">
+        <div className="col-md-3 hidden lg:grid">
           <img src={paws} className="h-720 mt-10" />
         </div>
         <Formik
@@ -148,14 +148,14 @@ class ReportFoundPetPage extends Component {
           onSubmit={this.onSubmitPet}
         >
           {({ handleSubmit, handleChange, setFieldValue, values, errors }) => (
-            <Form as={Col} noValidate>
-              <div className="text-base font-light mt-5 text-lg">
+            <Form as={Col} noValidate className="ml-4 md:ml-0">
+              <div className=" font-light mt-5 text-base ml-6 md:ml-0 md:text-lg">
                 Thank you for taking the time to register a pet you have found,
                 or a pet that you have seen that you feel may be lost. We help
                 to reunite thousand of pets every year, and we couldn't do this
                 without your help!
               </div>
-              <Form.Group as={Col} className="mt-10">
+              <Form.Group as={Col} className="mt-10 ">
                 <Form.Label>Type of pet</Form.Label>
                 <InputGroup hasValidation>
                   <Form.Select
@@ -228,7 +228,7 @@ class ReportFoundPetPage extends Component {
                   </InputGroup>
                 </Form.Group>
                 <Form.Group as={Col} className="mr-3">
-                  <Form.Label>Age (years)</Form.Label>
+                  <Form.Label>Age (Approximately)</Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control
                       type="number"
@@ -339,7 +339,7 @@ class ReportFoundPetPage extends Component {
             </Form>
           )}
         </Formik>
-        <div className="col-md-3 flex flex-row-reverse">
+        <div className="col-md-3 flex flex-row-reverse hidden lg:grid">
           <img src={paws} className="h-720 mt-10" />
         </div>
       </Row>

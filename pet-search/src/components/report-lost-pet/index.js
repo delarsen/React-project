@@ -118,11 +118,11 @@ class ReportLostPetPage extends Component {
   render() {
     return (
       <Row className="w-full ">
-        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-7xl text-white font-light">
+        <div className="w-full h-48 bg-amber-400 text-center pt-20 md:pt-12 text-3xl text-white font-light sm:text-5xl md:text-7xl">
           Report pet As Lost
         </div>
 
-        <div className="col-md-3">
+        <div className="col-md-3 hidden lg:grid">
           <img src={paws} className="h-720 mt-10" />
         </div>
         <Formik
@@ -140,8 +140,8 @@ class ReportLostPetPage extends Component {
           onSubmit={this.onSubmitPet}
         >
           {({ handleSubmit, handleChange, setFieldValue, values, errors }) => (
-            <Form as={Col} noValidate>
-              <div className="text-base font-light mt-5 text-lg">
+            <Form as={Col} noValidate className="ml-4 md:ml-0">
+              <div className="text-base font-light mt-5 ml-6 md:ml-0 md:text-lg">
                 If you have lost your pet, fill out the form below, and caring
                 volunteers will help you bring your pet back home.
               </div>
@@ -218,7 +218,7 @@ class ReportLostPetPage extends Component {
                   </InputGroup>
                 </Form.Group>
                 <Form.Group as={Col} className="mr-3">
-                  <Form.Label>Age (years)</Form.Label>
+                  <Form.Label>Age (Approximately)</Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control
                       type="number"
@@ -328,7 +328,7 @@ class ReportLostPetPage extends Component {
             </Form>
           )}
         </Formik>
-        <div className="col-md-3 flex flex-row-reverse">
+        <div className="col-md-3 flex flex-row-reverse hidden lg:grid">
           <img src={paws} className="h-720 mt-10" />
         </div>
       </Row>

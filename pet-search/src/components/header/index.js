@@ -80,6 +80,7 @@ export default class Header extends Component {
                   </NavDropdown>
                 </Nav>
                 <LoginButton
+                  className=""
                   isLoggedIn={this.state.isLoggedIn}
                   user={this.state.user}
                 />

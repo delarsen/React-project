@@ -9,6 +9,7 @@ import ReportFoundPetPage from "./report-found-pet";
 import ReportLostPetPage from "./report-lost-pet";
 import ViewPetsPage from "./view-pets";
 import ViewFoundPetsPage from "./viewfoundpets";
+import ViewLostPetsPage from "./viewlostpets";
 export default class App extends Component {
   render() {
     return (
@@ -23,6 +24,7 @@ export default class App extends Component {
             <Route path="/reportlostpet" element={<ReportLostPetPage />} />
             <Route path="/viewpets" element={<ViewPetsPage />} />
             <Route path="/viewfoundpets" element={<ViewFoundPetsPage />} />
+            <Route path="/viewlostpets" element={<ViewLostPetsPage />} />
           </Routes>
         </div>
         <Footer />

@@ -36,5 +36,14 @@ const getFoundPets = async () => {
     console.error(error);
   }
 };
+const getLostPets = async () => {
+  try {
+    return await (
+      await axios.get(`${apiBase}${lostPetsEndpoint}`)
+    ).data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-export { addFoundPet, addLostPet, getFoundPets };
+export { addFoundPet, addLostPet, getFoundPets, getLostPets };

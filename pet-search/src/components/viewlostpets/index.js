@@ -4,7 +4,7 @@ import axios from "axios";
 import * as petService from "../../services/pet-service";
 import PetCards from "./pet-cards.js";
 const values = "k";
-class ViewFoundPetsPage extends Component {
+class ViewLostPetsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,21 +15,21 @@ class ViewFoundPetsPage extends Component {
 
   componentDidMount() {
     petService
-      .getFoundPets()
+      .getLostPets()
       .then((response) => this.setState({ pets: response }));
   }
 
   onChange() {}
   render() {
     return (
-      <div className="flex space-between flex-col md:flex-row">
-        <div className="md:w-5/12 min-h-full bg-gray-100 w-full">
+      <div className="flex space-between flex-col  md:flex-row">
+        <div className="md:w-5/12 min-h-full bg-gray-100 w-full ">
           <h4 className="text-center font-bold mt-10">Refine Results</h4>
           <div className="text-sm text-center">
             Showing {this.state.pets.length} results
           </div>
           <br />
-          <div className="md:ml-4 text-center md:text-left">
+          <div className="md:ml-4 text-center">
             <label className="font-semibold">Type of pet</label>
             <br />
             <select
@@ -56,7 +56,7 @@ class ViewFoundPetsPage extends Component {
             <span>
               <label className="font-semibold">From Date:</label>
               <br />
-              <input type="date" className="w-64 h-8"></input>
+              <input type="date" className="w-64 h-8 "></input>
             </span>
             <br />
             <br />
@@ -129,4 +129,4 @@ class ViewFoundPetsPage extends Component {
   }
 }
 
-export default ViewFoundPetsPage;
+export default ViewLostPetsPage;
