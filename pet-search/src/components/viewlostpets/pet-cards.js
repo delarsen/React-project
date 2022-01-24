@@ -28,7 +28,11 @@ export default class PetCards extends Component {
                 Neutered: {pet.neutered}, Color: {pet.color}.
               </Card.Text>
 
-              <Button variant="primary" className="text-center">
+              <Button
+                variant="primary"
+                className="text-center"
+                href={`/React-project/viewlostpets/${pet.id}`}
+              >
                 View more info
               </Button>
               <br />

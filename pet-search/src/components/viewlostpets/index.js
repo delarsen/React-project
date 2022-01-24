@@ -3,7 +3,8 @@ import { Col, Button, Form, FormGroup } from "react-bootstrap";
 import axios from "axios";
 import * as petService from "../../services/pet-service";
 import PetCards from "./pet-cards.js";
-const values = "k";
+import PetsInfoPage from "../pets-info-page/index";
+
 class ViewLostPetsPage extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,6 @@ class ViewLostPetsPage extends Component {
       .then((response) => this.setState({ pets: response }));
   }
 
-  onChange() {}
   render() {
     return (
       <div className="flex space-between flex-col  md:flex-row">
@@ -32,11 +32,7 @@ class ViewLostPetsPage extends Component {
           <div className="md:ml-4 text-center">
             <label className="font-semibold">Type of pet</label>
             <br />
-            <select
-              defaultValue="all"
-              className="w-64 h-8"
-              onChange={this.onChange}
-            >
+            <select defaultValue="all" className="w-64 h-8">
               <option key="cat" value="cat">
                 cat
               </option>

@@ -3,7 +3,7 @@ import { Col, Button, Form, FormGroup } from "react-bootstrap";
 import axios from "axios";
 import * as petService from "../../services/pet-service";
 import PetCards from "./pet-cards.js";
-const values = "k";
+
 class ViewFoundPetsPage extends Component {
   constructor(props) {
     super(props);
@@ -11,22 +11,32 @@ class ViewFoundPetsPage extends Component {
       pets: [],
       filteredList: [],
     };
+    this.onTypeChange = this.onTypeChange.bind(this);
   }
 
   componentDidMount() {
     petService
       .getFoundPets()
-      .then((response) => this.setState({ pets: response }));
+      .then((response) =>
+        this.setState({ pets: response, filteredList: response })
+      );
   }
 
-  onChange() {}
+  onTypeChange(e) {
+    const filteredByType = this.state.pets.filter(
+      (pet) => pet.type === e.target.value
+    );
+    this.setState({ filteredList: filteredByType });
+    console.log(e.target.value);
+  }
+
   render() {
     return (
       <div className="flex space-between flex-col md:flex-row">
         <div className="md:w-5/12 min-h-full bg-gray-100 w-full">
           <h4 className="text-center font-bold mt-10">Refine Results</h4>
           <div className="text-sm text-center">
-            Showing {this.state.pets.length} results
+            Showing {this.state.filteredList.length} results
           </div>
           <br />
           <div className="md:ml-4 text-center md:text-left">
@@ -35,7 +45,7 @@ class ViewFoundPetsPage extends Component {
             <select
               defaultValue="all"
               className="w-64 h-8"
-              onChange={this.onChange}
+              onChange={this.onTypeChange}
             >
               <option key="cat" value="cat">
                 cat
@@ -123,7 +133,7 @@ class ViewFoundPetsPage extends Component {
           </div>
         </div>
 
-        <PetCards pets={this.state.pets} />
+        <PetCards pets={this.state.filteredList} />
       </div>
     );
   }

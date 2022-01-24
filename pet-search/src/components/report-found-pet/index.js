@@ -123,6 +123,12 @@ class ReportFoundPetPage extends Component {
     return options;
   };
 
+  componentDidMount() {
+    if (!localStorage.getItem("isLoggedIn")) {
+      window.location.href = "/React-project/login";
+    }
+  }
+
   render() {
     return (
       <Row className="w-full ">
