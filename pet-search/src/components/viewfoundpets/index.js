@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Col, Button, Form, FormGroup } from "react-bootstrap";
 import axios from "axios";
 import * as petService from "../../services/pet-service";
 import PetCards from "./pet-cards.js";
+import OffCanvas from "./offcanvas";
 
 class ViewFoundPetsPage extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class ViewFoundPetsPage extends Component {
   render() {
     return (
       <div className="flex space-between flex-col md:flex-row">
-        <div className="md:w-5/12 min-h-full bg-gray-100 w-full">
+        {/* <div className="md:w-5/12 min-h-full bg-gray-100 w-full">
           <h4 className="text-center font-bold mt-10">Refine Results</h4>
           <div className="text-sm text-center">
             Showing {this.state.filteredList.length} results
@@ -131,8 +132,8 @@ class ViewFoundPetsPage extends Component {
               No
             </span>
           </div>
-        </div>
-
+        </div> */}
+        <OffCanvas />
         <PetCards pets={this.state.filteredList} />
       </div>
     );

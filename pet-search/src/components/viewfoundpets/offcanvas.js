@@ -1,37 +1,40 @@
-import React, { Component } from "react";
-import { Col, Button, Form, FormGroup } from "react-bootstrap";
-import axios from "axios";
-import * as petService from "../../services/pet-service";
-import PetCards from "./pet-cards.js";
+import React, { Component, useState } from "react";
+import { Button } from "react-bootstrap";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
-class ViewLostPetsPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pets: [],
-      filteredList: [],
-    };
-  }
+const options = [
+  {
+    name: "Enable body scrolling",
+    scroll: true,
+    backdrop: false,
+  },
+];
 
-  componentDidMount() {
-    petService
-      .getLostPets()
-      .then((response) => this.setState({ pets: response }));
-  }
+function OffCanvasExample({ name, ...props }) {
+  const [show, setShow] = useState(false);
 
-  render() {
-    return (
-      <div className="flex space-between flex-col  md:flex-row">
-        <div className="md:w-5/12 min-h-full bg-gray-100 w-full ">
+  const handleClose = () => setShow(false);
+  const toggleShow = () => setShow((s) => !s);
+
+  return (
+    <>
+      <div onMouseEnter={toggleShow}>{name}</div>
+      <Offcanvas show={show} onHide={handleClose} {...props}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title></Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
           <h4 className="text-center font-bold mt-10">Refine Results</h4>
-          <div className="text-sm text-center">
-            Showing {this.state.pets.length} results
-          </div>
+          <div className="text-sm text-center">Showing</div>
           <br />
-          <div className="md:ml-4 text-center">
+          <div className="md:ml-4 text-center md:text-left">
             <label className="font-semibold">Type of pet</label>
             <br />
-            <select defaultValue="all" className="w-64 h-8">
+            <select
+              defaultValue="all"
+              className="w-64 h-8"
+              //onChange={this.onTypeChange}
+            >
               <option key="cat" value="cat">
                 cat
               </option>
@@ -51,7 +54,7 @@ class ViewLostPetsPage extends Component {
             <span>
               <label className="font-semibold">From Date:</label>
               <br />
-              <input type="date" className="w-64 h-8 "></input>
+              <input type="date" className="w-64 h-8"></input>
             </span>
             <br />
             <br />
@@ -116,12 +119,23 @@ class ViewLostPetsPage extends Component {
               No
             </span>
           </div>
-        </div>
-
-        <PetCards pets={this.state.pets} />
-      </div>
-    );
-  }
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
 }
 
-export default ViewLostPetsPage;
+function Example() {
+  return (
+    <>
+      {options.map((props, idx) => (
+        <OffCanvasExample key={idx} {...props} />
+      ))}
+    </>
+  );
+}
+export default class OffCanvas extends Component {
+  render() {
+    return <Example />;
+  }
+}

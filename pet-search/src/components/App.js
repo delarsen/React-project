@@ -11,7 +11,7 @@ import ViewPetsPage from "./view-pets";
 import ViewFoundPetsPage from "./viewfoundpets";
 import ViewLostPetsPage from "./viewlostpets";
 import PetCards from "./viewlostpets/pet-cards";
-import PetsInfoPage from "./pets-info-page";
+
 import PetPage from "./pet-page";
 import RequiredPage from "./required-page";
 

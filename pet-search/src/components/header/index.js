@@ -53,12 +53,12 @@ export default class Header extends Component {
               className="justify-content-end z-50"
             >
               <Form className="d-flex ">
-                <FormControl
+                {/* <FormControl
                   type="search"
                   placeholder="Search"
                   className="me-2 "
                   aria-label="Search"
-                />
+                /> */}
 
                 <Nav className="">
                   <NavDropdown
@@ -80,7 +80,6 @@ export default class Header extends Component {
                   </NavDropdown>
                 </Nav>
                 <LoginButton
-                  className=""
                   isLoggedIn={this.state.isLoggedIn}
                   user={this.state.user}
                 />
