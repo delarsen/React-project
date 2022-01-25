@@ -13,6 +13,7 @@ import ViewLostPetsPage from "./viewlostpets";
 import PetCards from "./viewlostpets/pet-cards";
 import PetsInfoPage from "./pets-info-page";
 import PetPage from "./pet-page";
+import RequiredPage from "./required-page";
 
 export default class App extends Component {
   render() {
@@ -33,6 +34,7 @@ export default class App extends Component {
               path={`/viewlostpets/:id`}
               element={<PetPage type="lost" />}
             />
+            <Route path="/loginrequired" element={<RequiredPage />} />
           </Routes>
         </div>
         <Footer />

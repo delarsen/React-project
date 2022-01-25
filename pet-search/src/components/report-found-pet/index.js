@@ -125,7 +125,7 @@ class ReportFoundPetPage extends Component {
 
   componentDidMount() {
     if (!localStorage.getItem("isLoggedIn")) {
-      window.location.href = "/React-project/login";
+      window.location.href = "/React-project/loginrequired";
     }
   }
 

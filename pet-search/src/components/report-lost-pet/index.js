@@ -115,6 +115,12 @@ class ReportLostPetPage extends Component {
     return options;
   };
 
+  componentDidMount() {
+    if (!localStorage.getItem("isLoggedIn")) {
+      window.location.href = "/React-project/loginrequired";
+    }
+  }
+
   render() {
     return (
       <Row className="w-full ">
