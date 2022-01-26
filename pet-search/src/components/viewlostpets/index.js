@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Col, Button, Form, FormGroup } from "react-bootstrap";
 import axios from "axios";
 import * as petService from "../../services/pet-service";
-import PetCards from "./pet-cards.js";
+import PetCards from "../pet-cards/index";
 
 class ViewLostPetsPage extends Component {
   constructor(props) {
@@ -118,7 +118,7 @@ class ViewLostPetsPage extends Component {
           </div>
         </div>
 
-        <PetCards pets={this.state.pets} />
+        <PetCards pets={this.state.pets} url="/React-project/viewlostpets" />
       </div>
     );
   }

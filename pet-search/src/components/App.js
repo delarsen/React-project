@@ -10,7 +10,6 @@ import ReportLostPetPage from "./report-lost-pet";
 import ViewPetsPage from "./view-pets";
 import ViewFoundPetsPage from "./viewfoundpets";
 import ViewLostPetsPage from "./viewlostpets";
-import PetCards from "./viewlostpets/pet-cards";
 
 import PetPage from "./pet-page";
 import RequiredPage from "./required-page";

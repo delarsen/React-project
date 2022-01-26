@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Col, Button, Form, FormGroup } from "react-bootstrap";
 import axios from "axios";
 import * as petService from "../../services/pet-service";
-import PetCards from "./pet-cards.js";
+import PetCards from "../pet-cards/index";
 import OffCanvas from "./offcanvas.js";
 class ViewFoundPetsPage extends Component {
   constructor(props) {
@@ -133,7 +133,10 @@ class ViewFoundPetsPage extends Component {
           </div>
         </div> */}
         <OffCanvas />
-        <PetCards pets={this.state.filteredList} />
+        <PetCards
+          pets={this.state.filteredList}
+          url="/React-project/viewfoundpets"
+        />
       </div>
     );
   }
