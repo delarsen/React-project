@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import login from "../../images/login-icon.jpg";
 import LoginButton from "./login-button";
+import looking from "../../images/looking.png";
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -46,43 +47,38 @@ export default class Header extends Component {
       <div>
         <Navbar collapseOnSelect bg="light" expand="lg">
           <Container>
+            <img src={looking} className="h-8 w-8 mr-2 hidden lg:flex" />
             <Navbar.Brand href="/React-project/">Animal search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
               id="basic-navbar-nav"
-              className="justify-content-end z-50"
+              className="justify-content-end z-50 "
             >
-              <Form className="d-flex ">
-                {/* <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="me-2 "
-                  aria-label="Search"
-                /> */}
-
-                <Nav className="">
-                  <NavDropdown
-                    title="Menu"
-                    id="basic-nav-dropdown"
-                    className="ml-12 custom-dropdown"
+              <Form className="md:d-flex ">
+                <Nav>
+                  <Nav.Link
+                    href="/React-project/reportlostpet"
+                    className="text-center font-bold md:font-normal"
                   >
-                    <NavDropdown.Item href="/React-project/reportlostpet">
-                      Report lost pet
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/React-project/reportfoundpet">
-                      Register found pet
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/React-project/viewpets">
-                      View pets
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                    Report lost pet
+                  </Nav.Link>
+                  <Nav.Link
+                    href="/React-project/reportfoundpet"
+                    className="md:ml-8 text-center font-bold md:font-normal"
+                  >
+                    Register found pet
+                  </Nav.Link>
+                  <Nav.Link
+                    href="/React-project/viewpets"
+                    className="md:ml-8 mr-0 md:mr-4 text-center font-bold md:font-normal"
+                  >
+                    View pets
+                  </Nav.Link>
+                  <LoginButton
+                    isLoggedIn={this.state.isLoggedIn}
+                    user={this.state.user}
+                  />
                 </Nav>
-                <LoginButton
-                  isLoggedIn={this.state.isLoggedIn}
-                  user={this.state.user}
-                />
               </Form>
             </Navbar.Collapse>
           </Container>

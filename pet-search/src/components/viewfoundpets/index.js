@@ -3,8 +3,7 @@ import { Col, Button, Form, FormGroup } from "react-bootstrap";
 import axios from "axios";
 import * as petService from "../../services/pet-service";
 import PetCards from "./pet-cards.js";
-import OffCanvas from "./offcanvas";
-
+import OffCanvas from "./offcanvas.js";
 class ViewFoundPetsPage extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +36,7 @@ class ViewFoundPetsPage extends Component {
         {/* <div className="md:w-5/12 min-h-full bg-gray-100 w-full">
           <h4 className="text-center font-bold mt-10">Refine Results</h4>
           <div className="text-sm text-center">
-            Showing {this.state.filteredList.length} results
+            Showing {this.state.pets.length} results
           </div>
           <br />
           <div className="md:ml-4 text-center md:text-left">
