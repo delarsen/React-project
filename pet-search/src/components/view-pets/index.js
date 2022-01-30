@@ -6,7 +6,7 @@ class ViewPetsPage extends Component {
   render() {
     return (
       <div>
-        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-3xl text-white font-light sm:text-7xl">
+        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-3xl text-white font-light sm:text-7xl ">
           Search our site for missing or found pets:
         </div>
         <div className="w-full h-48 mb-8 text-center">
@@ -22,8 +22,8 @@ class ViewPetsPage extends Component {
             <span className="font-light ">Register</span>
           </Button>
         </div>
-        <div className="w-full h-96 bg-slate-100 flex  justify-center flex-col   md:flex-row  md:space-x-64">
-          <span className=" mt-8 font-light md:mt-28">
+        <div className="w-full h-96 bg-gray-100 flex  justify-center flex-col   md:flex-row  md:space-x-64 ">
+          <span className=" mt-8 font-light md:mt-24 ml-4 md:ml-0 ">
             <h3 className="font-light">
               <b>Missing</b> Pets
             </h3>
@@ -35,7 +35,7 @@ class ViewPetsPage extends Component {
             </Button>
           </span>
 
-          <span className="mt-8 font-light md:mt-28">
+          <span className="mt-8 font-light md:mt-24 ml-4 md:ml-0">
             <h3 className="font-light">
               <b>Found</b> Pets
             </h3>

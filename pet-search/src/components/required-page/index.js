@@ -6,17 +6,20 @@ export default class RequiredPage extends Component {
   render() {
     return (
       <div>
-        <div className="bg-amber-400 w-full h-[710px]">
-          <div className="text-center text-8xl text-white font-light pt-20">
+        <div className="bg-amber-400 w-full h-[450px] md:h-[710px]">
+          <div className="text-center text-5xl md:text-8xl text-white font-light pt-20">
             Join our family
           </div>
           <img src={report} className="ml-auto mr-auto pt-24" />
         </div>
 
-        <div className=" pt-[70px] pb-[70px] pl-[15px] pr-[15px] flex w-[1170px] h-[570px] ml-[250px] mr-[50px]">
-          <img src={girlwithdog} className="w-[360px] h-[430px] " />
-          <div className="w-[72rem] h-[430px] ml-16">
-            <p className="font-light text-xl">
+        <div className="flex mt-20 mb-20 inline-block justify-center">
+          <img
+            src={girlwithdog}
+            className="w-80 h-[24rem] ml-36 hidden lg:block"
+          />
+          <div className="w-[45rem] h-[430px] ml-4 md:ml-16">
+            <p className="font-light text-base md:text-xl">
               If you've found a stray pet and you need to find the owner then
               your in the right place. By uploading pictures here (if you choose
               to) and/or a description then our website will Auto-Match (which
@@ -26,9 +29,9 @@ export default class RequiredPage extends Component {
               close the case.
             </p>
             <br />
-            <br />
+
             <h3 className=" font-light">Do you have an account?</h3>
-            <p className="font-light text-xl mt-2">
+            <p className="font-light text-base md:text-xl mt-2">
               Before you can report this found pet, we just need to take a few
               details from you. This should only take a couple of minutes. If
               you already have an account then login using the button below.

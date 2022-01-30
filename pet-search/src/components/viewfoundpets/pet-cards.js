@@ -52,7 +52,7 @@ export default class PetCards extends Component {
     return (
       <>
         <div
-          className=" grid grid-cols-1 lg:grid-rows-3 lg:grid-cols-3 "
+          className=" grid grid-cols-1 lg:grid-rows-3 lg:grid-cols-4 "
           style={{ backgroundImage: `url(${imgBackground})` }}
         >
           {this.renderPets()}

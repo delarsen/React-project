@@ -1,31 +1,40 @@
 import React, { Component, useState } from "react";
-import { Button } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
-
+import { useDispatch } from "react-redux";
+import { filterByPetType } from "../../features/filterSlice";
+import arrow from "../../images/arrow.png";
 const options = [
   {
-    name: "Enable body scrolling",
     scroll: true,
     backdrop: false,
   },
 ];
 
 function OffCanvasExample({ name, ...props }) {
+  const dispatch = useDispatch();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
 
+  const onTypeChange = (e) => {
+    dispatch(filterByPetType(e.target.value));
+  };
+
   return (
     <>
-      <div onMouseEnter={toggleShow}>{name}</div>
+      <div onMouseEnter={toggleShow} className="w-24 ">
+        <img src={arrow} className="h-8 ml-2 mt-2" />
+      </div>
+
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title></Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <h4 className="text-center font-bold mt-10">Refine Results</h4>
-          <div className="text-sm text-center">Showing</div>
+          <div className="text-sm text-center">Showing results</div>
           <br />
           <div className="md:ml-4 text-center md:text-left">
             <label className="font-semibold">Type of pet</label>
@@ -33,7 +42,7 @@ function OffCanvasExample({ name, ...props }) {
             <select
               defaultValue="all"
               className="w-64 h-8"
-              //onChange={this.onTypeChange}
+              onChange={onTypeChange}
             >
               <option key="cat" value="cat">
                 cat
@@ -94,29 +103,6 @@ function OffCanvasExample({ name, ...props }) {
                 className="w-4 h-4"
               />
               Don't know
-            </span>
-          </div>
-          <br />
-          <div className="md:ml-4 text-center mb-4 md:mb-0">
-            <label className="mb-1 font-semibold">Neutered?</label>
-            <br />
-            <span>
-              <input
-                type="checkbox"
-                value="yes"
-                name="neutered"
-                className="w-4 h-4"
-              />
-              Yes
-            </span>
-            <span className="ml-4">
-              <input
-                type="checkbox"
-                value="no"
-                name="neutered"
-                className="w-4 h-4"
-              />
-              No
             </span>
           </div>
         </Offcanvas.Body>

@@ -41,7 +41,7 @@ function RegisterPage() {
   return (
     <Row className="w-full">
       <div className="col-md-3">
-        <img src={paws} alt="" className="h-720 mt-10" />
+        <img src={paws} alt="" className="h-720 mt-10 hidden md:block" />
       </div>
       <Formik
         initialValues={{
@@ -55,7 +55,7 @@ function RegisterPage() {
         validationSchema={schema}
       >
         {({ handleSubmit, handleChange, values, errors }) => (
-          <Form as={Col} noValidate>
+          <Form as={Col} noValidate className="ml-4 md:ml-0">
             <div className="max-w-full flex mt-20">
               <Form.Group as={Col} controlId="validationName" className="mr-5">
                 <Form.Label>Name</Form.Label>
@@ -164,7 +164,7 @@ function RegisterPage() {
         )}
       </Formik>
       <div className="col-md-3 flex flex-row-reverse">
-        <img src={paws} alt="" className="h-720 mt-10" />
+        <img src={paws} alt="" className="h-720 mt-10 hidden md:block" />
       </div>
     </Row>
   );

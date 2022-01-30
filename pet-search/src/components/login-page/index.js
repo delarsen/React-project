@@ -53,8 +53,8 @@ function LoginPage() {
         validationSchema={schema}
       >
         {({ handleSubmit, handleChange, values, errors }) => (
-          <Form as={Col} noValidate>
-            <Form.Group as={Col} controlId="validationEmail" className="mt-20">
+          <Form as={Col} noValidate className="ml-4 md:ml-0">
+            <Form.Group as={Col} controlId="validationEmail" className="mt-20 ">
               <Form.Label>Email</Form.Label>
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -101,7 +101,11 @@ function LoginPage() {
                 </div>
               </Form.Group>
               <Form.Group as={Col} md="4" className="text-right">
-                <Button type="submit" onClick={handleSubmit}>
+                <Button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="ml-4 md:ml-0"
+                >
                   Log in
                 </Button>
               </Form.Group>
