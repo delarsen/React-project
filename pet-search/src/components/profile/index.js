@@ -2,21 +2,24 @@ import React, { Component, useEffect } from "react";
 import { Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import * as userService from "../../services/user-service";
-import PagesInfo from "./pages-info";
+import FoundInfo from "./found-info";
+import LostInfo from "./lost-info";
+import AccountInfo from "./pages-info";
 export default function ProfilePage(props) {
   let { id } = useParams();
   const [user, setUser] = React.useState(null);
   const [link, setLink] = React.useState("info");
   const pages = {
-    info: <PagesInfo />,
-    found: <div>found</div>,
-    lost: <div>lost</div>,
+    info: <AccountInfo />,
+    found: <FoundInfo />,
+    lost: <LostInfo />,
   };
 
   useEffect(() => {
     if (!user) {
-      userService.getUsersById(id).then((response) => setUser(response));
-      console.log("user");
+      //userService.getUsersById(id).then((response) => setUser(response));
+      const user = JSON.parse(localStorage.getItem("user"));
+      console.log(user);
     }
 
     return;

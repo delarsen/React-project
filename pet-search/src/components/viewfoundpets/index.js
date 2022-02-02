@@ -13,13 +13,20 @@ class ViewFoundPetsPage extends Component {
     this.state = {
       pets: [],
       filteredList: [],
+      userPets: [],
     };
     this.onTypeChange = this.onTypeChange.bind(this);
   }
 
   componentDidMount() {
     petService.getFoundPets().then((response) => {
-      //this.setState({ userPets: response.filter(pet => pet.registeredBy == ), filteredList: response });
+      // Get parsed user.
+      const user = JSON.parse(localStorage.getItem("user"));
+      // Get current user found pets.
+      this.setState({
+        userPets: response.filter((pet) => pet.registeredBy == user.id),
+        filteredList: response,
+      });
       this.setState({ pets: response, filteredList: response });
       this.props.savePetList(response);
     });
