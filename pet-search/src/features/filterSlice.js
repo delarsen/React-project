@@ -12,7 +12,7 @@ export const filterSlice = createSlice({
         state.filteredPets = [...state.allPets];
         return;
       }
-      state.filteredPets = state.filteredPets.filter(
+      state.filteredPets = state.allPets.filter(
         (pet) => pet.type === action.payload
       );
     },

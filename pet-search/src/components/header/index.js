@@ -48,8 +48,10 @@ export default class Header extends Component {
       <div>
         <Navbar collapseOnSelect bg="light" expand="lg">
           <Container>
-            <img src={looking} className="h-12 w-12 mr-2 hidden lg:flex" />
-            <Navbar.Brand href="/React-project/">Animal search</Navbar.Brand>
+            <a href="/React-project/">
+              <img src={looking} className="h-12 w-12 mr-2 hidden lg:flex" />
+            </a>
+            <Navbar.Brand href="/React-project/">Pet search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
               id="basic-navbar-nav"

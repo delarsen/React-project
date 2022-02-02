@@ -66,6 +66,22 @@ const getLostPetsById = async (id) => {
   }
 };
 
+const deleteFoundPet = async (id) => {
+  try {
+    return await axios.delete(`${apiBase}${foundPetsEndpoint}/${id}`);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const deleteLostPet = async (id) => {
+  try {
+    return await axios.delete(`${apiBase}${lostPetsEndpoint}/${id}`);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export {
   addFoundPet,
   addLostPet,
@@ -73,4 +89,6 @@ export {
   getLostPets,
   getFoundPetsById,
   getLostPetsById,
+  deleteFoundPet,
+  deleteLostPet,
 };

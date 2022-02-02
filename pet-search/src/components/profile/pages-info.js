@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+
 // Get parsed user
 const user = JSON.parse(localStorage.getItem("user"));
 export default class AccountInfo extends Component {

@@ -1,6 +1,4 @@
 import React, { Component, useState } from "react";
-import { Col, Button, Form, FormGroup } from "react-bootstrap";
-import axios from "axios";
 import * as petService from "../../services/pet-service";
 import PetCards from "../pet-cards/index";
 import OffCanvas from "./offcanvas.js";
@@ -20,6 +18,8 @@ class ViewFoundPetsPage extends Component {
 
   componentDidMount() {
     petService.getFoundPets().then((response) => {
+      //Reverse pet-cards
+      response = response.sort((a, b) => b.id - a.id);
       // Get parsed user.
       const user = JSON.parse(localStorage.getItem("user"));
       // Get current user found pets.

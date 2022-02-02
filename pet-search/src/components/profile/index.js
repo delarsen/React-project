@@ -1,29 +1,16 @@
-import React, { Component, useEffect } from "react";
+import React from "react";
 import { Nav } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import * as userService from "../../services/user-service";
 import FoundInfo from "./found-info";
 import LostInfo from "./lost-info";
 import AccountInfo from "./pages-info";
-export default function ProfilePage(props) {
-  let { id } = useParams();
-  const [user, setUser] = React.useState(null);
+
+export default function ProfilePage() {
   const [link, setLink] = React.useState("info");
   const pages = {
     info: <AccountInfo />,
     found: <FoundInfo />,
     lost: <LostInfo />,
   };
-
-  useEffect(() => {
-    if (!user) {
-      //userService.getUsersById(id).then((response) => setUser(response));
-      const user = JSON.parse(localStorage.getItem("user"));
-      console.log(user);
-    }
-
-    return;
-  });
 
   return (
     <div className="inline-flex" style={{ minHeight: "inherit" }}>
@@ -42,7 +29,7 @@ export default function ProfilePage(props) {
           Lost pets
         </Nav.Link>
       </Nav>
-      <div style={{ width: "calc(100vw - 12rem)" }}>{pages[link]}</div>
+      <div style={{ width: "calc(100vw - 13.5rem)" }}>{pages[link]}</div>
     </div>
   );
 }

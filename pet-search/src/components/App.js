@@ -38,7 +38,7 @@ export default class App extends Component {
               element={<PetPage2 type="found" />}
             />
             <Route path="/loginrequired" element={<RequiredPage />} />
-            <Route path={`/account/:id`} element={<ProfilePage />} />
+            <Route path={`/account`} element={<ProfilePage />} />
           </Routes>
         </div>
         <Footer />
