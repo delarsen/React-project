@@ -6,7 +6,7 @@ class ViewPetsPage extends Component {
   render() {
     return (
       <div>
-        <div className="w-full h-48 bg-amber-400 text-center pt-12 text-3xl text-white font-light sm:text-7xl ">
+        <div className="w-full h-64 bg-amber-400 text-center pt-20 text-3xl text-white font-light sm:text-7xl ">
           Search our site for missing or found pets:
         </div>
         <div className="w-full h-48 mb-8 text-center">
@@ -15,7 +15,7 @@ class ViewPetsPage extends Component {
           </h2>
           <Button
             type="button"
-            className=" rounded-none  mt-3 "
+            className=" rounded-none  mt-4"
             size="lg"
             href="/React-project/reportlostpet"
           >

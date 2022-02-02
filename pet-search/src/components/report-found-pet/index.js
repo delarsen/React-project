@@ -72,6 +72,8 @@ class ReportFoundPetPage extends Component {
   };
 
   onSubmitPet = (values) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
     const pet = {
       type: values.typeOfPet,
       breed:
@@ -85,10 +87,12 @@ class ReportFoundPetPage extends Component {
       description: values.description,
       date: values.date,
       images: this.state.images,
+      registeredBy: user.id,
     };
 
-    petService.addFoundPet(pet).then(() => {
-      window.location.href = "/React-project/";
+    petService.addFoundPet(pet).then((data) => {
+      console.log(data);
+      //window.location.href = "/React-project/";
     });
   };
 

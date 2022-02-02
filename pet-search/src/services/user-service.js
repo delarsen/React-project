@@ -67,6 +67,16 @@ const updateUser = async (id, field, value) => {
   }
 };
 
+const getUsersById = async (id) => {
+  try {
+    return await (
+      await axios.get(`${apiBase}${usersEndpoint}/${id}`)
+    ).data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export {
   getUsers,
   addUser,
@@ -74,4 +84,5 @@ export {
   replaceUser,
   updateUser,
   getSortedUsers,
+  getUsersById,
 };

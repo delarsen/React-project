@@ -6,8 +6,8 @@ export default class Footer extends Component {
     return (
       <div>
         <Navbar bg="light" expand="lg" sticky="bottom" className="h-16">
-          <Container>
-            <Navbar.Collapse className="flex justify-end ">
+          <Container className="">
+            <div className="navbar-collapse flex justify-end ">
               <div className="footer-copyright text-center py-3 ">
                 © 2020 Copyright:
                 <a
@@ -19,7 +19,7 @@ export default class Footer extends Component {
                   GithubPage
                 </a>
               </div>
-            </Navbar.Collapse>
+            </div>
           </Container>
         </Navbar>
       </div>

@@ -24,8 +24,8 @@ export default class ImageUploader extends Component {
   };
 
   handleDisplayFileDetails = () => {
-    if (this.state.images.length === 3) {
-      this.setState({ errorMessage: "Cannot upload more than 3 images" });
+    if (this.state.images.length === 1) {
+      this.setState({ errorMessage: "Cannot upload more than 1 image" });
       return;
     }
 
@@ -72,7 +72,7 @@ export default class ImageUploader extends Component {
             </InputGroup>
           </Form.Group>
           <Button variant="dark" as={Col} onClick={this.handleUpload}>
-            Upload images
+            Upload image
           </Button>
 
           <div className="text-red-600 mt-2">{this.state.errorMessage}</div>

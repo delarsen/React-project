@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as petService from "../../services/pet-service";
 import imgPlaceholder from "../../images/img-placeholder.png";
-import { faGenderless } from "@fortawesome/free-solid-svg-icons";
+
 export default function PetPage2(props) {
   let { id } = useParams();
   const [pet, setPet] = React.useState({});

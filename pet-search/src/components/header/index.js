@@ -11,6 +11,7 @@ import {
 import login from "../../images/login-icon.jpg";
 import LoginButton from "./login-button";
 import looking from "../../images/looking.png";
+
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +48,7 @@ export default class Header extends Component {
       <div>
         <Navbar collapseOnSelect bg="light" expand="lg">
           <Container>
-            <img src={looking} className="h-8 w-8 mr-2 hidden lg:flex" />
+            <img src={looking} className="h-12 w-12 mr-2 hidden lg:flex" />
             <Navbar.Brand href="/React-project/">Animal search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse

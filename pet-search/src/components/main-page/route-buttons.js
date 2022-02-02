@@ -8,7 +8,7 @@ import viewpet from "../../images/mainscreen1.png";
 export default class RouteButtons extends Component {
   render() {
     return (
-      <div className="flex justify-around mr-10 text-lg font-light flex-col md:flex-row ">
+      <div className="flex justify-around  text-lg font-light flex-col md:flex-row ">
         <RouteButton
           text="I am the owner of a missing pet."
           img={mainimg1}

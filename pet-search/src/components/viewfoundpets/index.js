@@ -19,6 +19,7 @@ class ViewFoundPetsPage extends Component {
 
   componentDidMount() {
     petService.getFoundPets().then((response) => {
+      //this.setState({ userPets: response.filter(pet => pet.registeredBy == ), filteredList: response });
       this.setState({ pets: response, filteredList: response });
       this.props.savePetList(response);
     });
