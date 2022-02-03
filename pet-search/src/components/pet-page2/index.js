@@ -54,7 +54,7 @@ export default function PetPage2(props) {
         <span>
           <img src={imgPlaceholder} className="w-[450px] h-[400px] border-1" />
         </span>
-        <span className="bg-black w-48 ">{pet.description}</span>
+        <span className="border-1 bg-white w-48 ">{pet.description}</span>
       </div>
     </div>
   );

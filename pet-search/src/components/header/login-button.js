@@ -3,7 +3,7 @@ import { Dropdown, Image } from "react-bootstrap";
 import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import login from "../../images/login-icon.jpg";
 import quit from "../../images/quit.png";
-let isLoggedIn = true;
+
 const CustomToggle = React.forwardRef(({ onClick }, ref) => {
   return (
     <Image
@@ -18,7 +18,7 @@ const CustomToggle = React.forwardRef(({ onClick }, ref) => {
     />
   );
 });
-const CustomToggleUser = React.forwardRef(({ onClick }, ref) => {
+const CustomToggleQuit = React.forwardRef(({ onClick }, ref) => {
   return (
     <Image
       src={quit}
@@ -75,7 +75,7 @@ export default class LoginButton extends Component {
       <>
         <Dropdown className="self-center mr-4 custom-dropdown">
           <Dropdown.Toggle
-            as={this.props.isLoggedIn ? CustomToggle : CustomToggleUser}
+            as={this.props.isLoggedIn ? CustomToggle : CustomToggleQuit}
             id="dropdown-custom-components"
           />
           {this.renderDropdownMenu()}

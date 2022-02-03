@@ -23,8 +23,9 @@ class ViewFoundPetsPage extends Component {
       // Get parsed user.
       const user = JSON.parse(localStorage.getItem("user"));
       // Get current user found pets.
+
       this.setState({
-        userPets: response.filter((pet) => pet.registeredBy == user.id),
+        userPets: response.filter((pet) => pet.registeredBy == user?.id),
         filteredList: response,
       });
       this.setState({ pets: response, filteredList: response });

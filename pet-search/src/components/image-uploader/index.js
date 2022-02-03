@@ -30,7 +30,9 @@ export default class ImageUploader extends Component {
     }
 
     this.setState({ errorMessage: "" });
+
     const reader = new FileReader();
+
     const file = this.inputRef.current?.files[0];
 
     reader.onloadend = () => {
