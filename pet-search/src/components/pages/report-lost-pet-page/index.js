@@ -70,7 +70,7 @@ class ReportLostPetPage extends Component {
         !values.breed || values.breed === ""
           ? breeds[values.typeOfPet].shift()
           : values.breed,
-      gemder: values.gender,
+      gender: values.gender,
       age: values.age,
       neutered: values.neutered,
       color: values.color,

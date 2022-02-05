@@ -8,8 +8,7 @@ import RegisterPage from "./pages/register-page";
 import ReportFoundPetPage from "./pages/report-found-pet-page";
 import ReportLostPetPage from "./pages/report-lost-pet-page";
 import ViewPetsPage from "./pages/view-pets-page";
-import ViewFoundPetsPage from "./pages/view-pets-page/viewfoundpets";
-import ViewLostPetsPage from "./pages/view-pets-page/viewlostpets";
+import ViewRegisteredPetsPage from "./pages/view-registered-pets-page";
 import PetPage from "./pages/pet-page";
 import RequiredPage from "./pages/required-page";
 import ProfilePage from "./pages/profile-page";
@@ -27,8 +26,14 @@ export default class App extends Component {
             <Route path="/reportfoundpet" element={<ReportFoundPetPage />} />
             <Route path="/reportlostpet" element={<ReportLostPetPage />} />
             <Route path="/viewpets" element={<ViewPetsPage />} />
-            <Route path="/viewfoundpets" element={<ViewFoundPetsPage />} />
-            <Route path="/viewlostpets" element={<ViewLostPetsPage />} />
+            <Route
+              path="/viewfoundpets"
+              element={<ViewRegisteredPetsPage type="found" />}
+            />
+            <Route
+              path="/viewlostpets"
+              element={<ViewRegisteredPetsPage type="lost" />}
+            />
             <Route
               path={`/viewlostpets/:id`}
               element={<PetPage type="lost" />}

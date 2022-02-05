@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Button, Card } from "react-bootstrap";
-import imgPlaceholder from "../../../../images/img-placeholder.png";
-import imgBackground from "../../../../images/animals-bc.jpg";
+import imgPlaceholder from "../../../images/img-placeholder.png";
+import imgBackground from "../../../images/animals-bc.jpg";
 
 export default class PetCards extends Component {
   renderPets() {
+    if (!this.props.pets.length) {
+      return <div>Pets not found</div>;
+    }
+
     return this.props.pets?.map((pet) => {
       return (
         <div key={pet.id}>
@@ -51,7 +55,7 @@ export default class PetCards extends Component {
     return (
       <>
         <div
-          className=" grid grid-cols-1 lg:grid-rows-3 lg:grid-cols-4 "
+          className=" grid grid-cols-1 lg:grid-cols-3 w-full"
           style={{ backgroundImage: `url(${imgBackground})` }}
         >
           {this.renderPets()}
