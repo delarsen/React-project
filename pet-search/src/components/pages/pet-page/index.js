@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import * as petService from "../../services/pet-service";
-import imgPlaceholder from "../../images/img-placeholder.png";
+import * as petService from "../../../services/pet-service";
+import imgPlaceholder from "../../../images/img-placeholder.png";
 
 export default function PetPage(props) {
   let { id } = useParams();

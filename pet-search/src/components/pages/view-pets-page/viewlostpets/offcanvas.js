@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch } from "react-redux";
-import { filterByPetType } from "../../features/filterSlice";
-import arrow from "../../images/arrow.png";
+import { filterByPetType } from "../../../../features/filterSlice";
+import arrow from "../../../../images/arrow.png";
 const options = [
   {
     scroll: true,

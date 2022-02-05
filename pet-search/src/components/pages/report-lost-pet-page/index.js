@@ -1,11 +1,11 @@
 import { Component } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
-import paws from "../../images/paws.png";
+import paws from "../../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
-import ImageUploader from "../image-uploader";
+import ImageUploader from "../../common/image-uploader";
 import * as dayjs from "dayjs";
-import * as petService from "../../services/pet-service";
+import * as petService from "../../../services/pet-service";
 
 let schema = yup.object().shape({
   age: yup.number().min(0).required(),

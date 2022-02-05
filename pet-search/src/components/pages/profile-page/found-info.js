@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import * as petService from "../../services/pet-service";
+import * as petService from "../../../services/pet-service";
 import PetCard from "./pet-card";
 
-export default class LostInfo extends Component {
+export default class FoundInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,14 +16,14 @@ export default class LostInfo extends Component {
     // Get parsed user
     const user = JSON.parse(localStorage.getItem("user"));
 
-    petService.getLostPets().then((response) => {
+    petService.getFoundPets().then((response) => {
       const userPets = response?.filter((pet) => pet.registeredBy === user.id);
       this.setState({ pets: userPets });
     });
   }
 
   onDeletePet(pet) {
-    petService.deleteLostPet(pet.id).then(() => {
+    petService.deleteFoundPet(pet.id).then(() => {
       this.setState({ pets: this.state.pets.filter((i) => i.id !== pet.id) });
     });
   }

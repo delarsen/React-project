@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import Header from "./header";
-import Footer from "./footer";
+import Header from "./common/header";
+import Footer from "./common/footer";
 import MainPage from "./pages/main-page";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/login-page";
 import RegisterPage from "./pages/register-page";
-import ReportFoundPetPage from "./report-found-pet";
-import ReportLostPetPage from "./report-lost-pet";
-import ViewPetsPage from "./view-pets";
-import ViewFoundPetsPage from "./viewfoundpets";
-import ViewLostPetsPage from "./viewlostpets";
-import PetPage from "./pet-page";
-import RequiredPage from "./required-page";
+import ReportFoundPetPage from "./pages/report-found-pet-page";
+import ReportLostPetPage from "./pages/report-lost-pet-page";
+import ViewPetsPage from "./pages/view-pets-page";
+import ViewFoundPetsPage from "./pages/view-pets-page/viewfoundpets";
+import ViewLostPetsPage from "./pages/view-pets-page/viewlostpets";
+import PetPage from "./pages/pet-page";
+import RequiredPage from "./pages/required-page";
+import ProfilePage from "./pages/profile-page";
 
-import ProfilePage from "./profile";
 export default class App extends Component {
   render() {
     return (

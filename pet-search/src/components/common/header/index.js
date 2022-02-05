@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Nav, Container, Navbar, Form } from "react-bootstrap";
 import LoginButton from "./login-button";
-import looking from "../../images/looking.png";
+import looking from "../../../images/looking.png";
 
 export default class Header extends Component {
   constructor(props) {

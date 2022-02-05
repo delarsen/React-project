@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown, Image } from "react-bootstrap";
-import login from "../../images/login-icon.jpg";
-import quit from "../../images/quit.png";
+import login from "../../../images/login-icon.jpg";
+import quit from "../../../images/quit.png";
 
 const CustomToggle = React.forwardRef(({ onClick }, ref) => {
   return (

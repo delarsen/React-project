@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import report from "../../images/report.png";
-import girlwithdog from "../../images/girlwithdog.jpg";
+import report from "../../../images/report.png";
+import girlwithdog from "../../../images/girlwithdog.jpg";
 import { Button } from "react-bootstrap";
 export default class RequiredPage extends Component {
   render() {

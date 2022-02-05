@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card } from "react-bootstrap";
-import imgPlaceholder from "../../images/img-placeholder.png";
-import imgBackground from "../../images/animals-bc.jpg";
+import imgPlaceholder from "../../../../images/img-placeholder.png";
+import imgBackground from "../../../../images/animals-bc.jpg";
 
 export default class PetCards extends Component {
   renderPets() {
