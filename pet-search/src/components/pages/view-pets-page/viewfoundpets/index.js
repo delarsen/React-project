@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as petService from "../../../../services/pet-service";
 import PetCards from "../pet-cards/index";
 import OffCanvas from "./offcanvas.js";
-import { savePetList } from "../../../../features/filterSlice";
+import { savePetList } from "../../../../store/filterSlice";
 import { connect } from "react-redux";
 
 class ViewFoundPetsPage extends Component {
