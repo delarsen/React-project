@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
-import paws from "../../images/paws.png";
+import paws from "../../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
-import * as userService from "../../services/user-service";
+import * as userService from "../../../services/user-service";
 
 const schema = yup.object().shape({
   email: yup.string().required(),

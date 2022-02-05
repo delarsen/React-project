@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Header from "./header";
 import Footer from "./footer";
-import MainPage from "./main-page";
+import MainPage from "./pages/main-page";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "./login-page";
-import RegisterPage from "./register-page";
+import LoginPage from "./pages/login-page";
+import RegisterPage from "./pages/register-page";
 import ReportFoundPetPage from "./report-found-pet";
 import ReportLostPetPage from "./report-lost-pet";
 import ViewPetsPage from "./view-pets";
