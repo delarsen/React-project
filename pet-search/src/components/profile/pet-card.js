@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Figure, Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import imgPlaceholder from "../../images/img-placeholder.png";
 
 export default class PetCard extends Component {

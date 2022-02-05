@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-  NavDropdown,
-  Nav,
-  Container,
-  Navbar,
-  FormControl,
-  Form,
-  Image,
-} from "react-bootstrap";
-import login from "../../images/login-icon.jpg";
+import { Nav, Container, Navbar, Form } from "react-bootstrap";
 import LoginButton from "./login-button";
 import looking from "../../images/looking.png";
 
@@ -49,7 +40,11 @@ export default class Header extends Component {
         <Navbar collapseOnSelect bg="light" expand="lg">
           <Container>
             <a href="/React-project/">
-              <img src={looking} className="h-12 w-12 mr-2 hidden lg:flex" />
+              <img
+                src={looking}
+                alt=""
+                className="h-12 w-12 mr-2 hidden lg:flex"
+              />
             </a>
             <Navbar.Brand href="/React-project/">Pet search</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

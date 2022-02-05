@@ -15,7 +15,6 @@ function LoginPage() {
 
   const loginUser = (values) => {
     userService.getUsers().then((users) => {
-      console.log(users);
       const user = users.find((user) => user.email === values.email);
       if (!user) {
         setErrorMessage("User not found");
@@ -44,7 +43,7 @@ function LoginPage() {
   return (
     <Row className="w-full">
       <div className="col-md-3 col-sm-2">
-        <img src={paws} className="h-720 mt-10 hidden md:block" />
+        <img src={paws} alt="" className="h-720 mt-10 hidden md:block" />
       </div>
       <Formik
         initialValues={{
@@ -116,7 +115,7 @@ function LoginPage() {
         )}
       </Formik>
       <div className="col-md-3 col-sm-2 flex flex-row-reverse">
-        <img src={paws} className="h-720 mt-10 hidden md:block" />
+        <img src={paws} alt="" className="h-720 mt-10 hidden md:block" />
       </div>
     </Row>
   );

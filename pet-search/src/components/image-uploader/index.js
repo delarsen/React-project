@@ -1,12 +1,5 @@
-import React, { Component, useRef } from "react";
-import {
-  Button,
-  CloseButton,
-  Col,
-  Form,
-  Image,
-  InputGroup,
-} from "react-bootstrap";
+import React, { Component } from "react";
+import { Button, Col, Form, Image, InputGroup } from "react-bootstrap";
 
 export default class ImageUploader extends Component {
   constructor(props) {

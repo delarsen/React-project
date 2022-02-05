@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Col, Button, Form, FormGroup } from "react-bootstrap";
-import axios from "axios";
 import * as petService from "../../services/pet-service";
 import PetCards from "../pet-cards/index";
 import OffCanvas from "./offcanvas";
@@ -28,7 +26,6 @@ class ViewLostPetsPage extends Component {
       (pet) => pet.type === e.target.value
     );
     this.setState({ filteredList: filteredByType });
-    console.log(e.target.value);
   }
 
   render() {

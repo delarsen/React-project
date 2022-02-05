@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Dropdown, Image } from "react-bootstrap";
-import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import login from "../../images/login-icon.jpg";
 import quit from "../../images/quit.png";
 

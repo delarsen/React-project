@@ -1,6 +1,5 @@
 import { Component } from "react";
-import { Col, Button } from "react-bootstrap";
-import catanddog from "../../images/catanddog.jpg";
+import { Button } from "react-bootstrap";
 
 class ViewPetsPage extends Component {
   render() {

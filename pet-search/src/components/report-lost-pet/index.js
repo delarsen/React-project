@@ -1,5 +1,5 @@
-import { Component, useState } from "react";
-import { Button, Col, Form, Image, InputGroup, Row } from "react-bootstrap";
+import { Component } from "react";
+import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import paws from "../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -129,7 +129,7 @@ class ReportLostPetPage extends Component {
         </div>
 
         <div className="col-md-3 hidden lg:grid">
-          <img src={paws} className="h-720 mt-10" />
+          <img src={paws} alt="" className="h-720 mt-10" />
         </div>
         <Formik
           initialValues={{
@@ -335,7 +335,7 @@ class ReportLostPetPage extends Component {
           )}
         </Formik>
         <div className="col-md-3 flex flex-row-reverse hidden lg:grid">
-          <img src={paws} className="h-720 mt-10" />
+          <img src={paws} alt="" className="h-720 mt-10" />
         </div>
       </Row>
     );

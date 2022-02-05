@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import * as petService from "../../services/pet-service";
 import PetCards from "../pet-cards/index";
 import OffCanvas from "./offcanvas.js";
@@ -25,7 +25,7 @@ class ViewFoundPetsPage extends Component {
       // Get current user found pets.
 
       this.setState({
-        userPets: response.filter((pet) => pet.registeredBy == user?.id),
+        userPets: response.filter((pet) => pet.registeredBy === user?.id),
         filteredList: response,
       });
       this.setState({ pets: response, filteredList: response });
@@ -38,7 +38,6 @@ class ViewFoundPetsPage extends Component {
       (pet) => pet.type === e.target.value
     );
     this.setState({ filteredList: filteredByType });
-    console.log(e.target.value);
   }
 
   render() {

@@ -25,7 +25,7 @@ function OffCanvasExample({ name, ...props }) {
   return (
     <>
       <div onMouseEnter={toggleShow} className="w-24 ">
-        <img src={arrow} className="h-8 ml-2 mt-2" />
+        <img src={arrow} alt="" className="h-8 ml-2 mt-2" />
       </div>
 
       <Offcanvas show={show} onHide={handleClose} {...props}>

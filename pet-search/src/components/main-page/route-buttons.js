@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import RouteButton from "./route-button";
 import mainimg1 from "../../images/bone.png";
-import mainimg2 from "../../images/bowl.png";
 import mainimg3 from "../../images/mainscreen3.png";
 
 import viewpet from "../../images/mainscreen1.png";

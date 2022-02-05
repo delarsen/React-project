@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../header";
 import RouteButtons from "./route-buttons";
 import MainPageSlider from "./slider";
 

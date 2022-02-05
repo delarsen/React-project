@@ -10,12 +10,13 @@ export default class RequiredPage extends Component {
           <div className="text-center text-5xl md:text-8xl text-white font-light pt-20">
             Join our family
           </div>
-          <img src={report} className="ml-auto mr-auto pt-24" />
+          <img src={report} alt="" className="ml-auto mr-auto pt-24" />
         </div>
 
         <div className="flex mt-20 mb-20 inline-block justify-center">
           <img
             src={girlwithdog}
+            alt=""
             className="w-80 h-[24rem] ml-36 hidden lg:block"
           />
           <div className="w-[45rem] h-[430px] ml-4 md:ml-16">

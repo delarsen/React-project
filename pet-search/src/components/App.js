@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import MainPage from "./main-page";
-import { HashRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LoginPage from "./login-page";
 import RegisterPage from "./register-page";
 import ReportFoundPetPage from "./report-found-pet";
@@ -12,7 +12,7 @@ import ViewFoundPetsPage from "./viewfoundpets";
 import ViewLostPetsPage from "./viewlostpets";
 import PetPage from "./pet-page";
 import RequiredPage from "./required-page";
-import PetPage2 from "./pet-page2";
+
 import ProfilePage from "./profile";
 export default class App extends Component {
   render() {
@@ -35,7 +35,7 @@ export default class App extends Component {
             />
             <Route
               path={`/viewfoundpets/:id`}
-              element={<PetPage2 type="found" />}
+              element={<PetPage type="found" />}
             />
             <Route path="/loginrequired" element={<RequiredPage />} />
             <Route path={`/account`} element={<ProfilePage />} />

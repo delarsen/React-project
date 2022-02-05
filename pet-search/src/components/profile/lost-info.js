@@ -17,11 +17,8 @@ export default class LostInfo extends Component {
     const user = JSON.parse(localStorage.getItem("user"));
 
     petService.getLostPets().then((response) => {
-      // Get parsed user.
-      console.log(response);
       const userPets = response?.filter((pet) => pet.registeredBy === user.id);
       this.setState({ pets: userPets });
-      console.log(userPets);
     });
   }
 
