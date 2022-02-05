@@ -56,7 +56,10 @@ export default function PetPage(props) {
       </div>
       <div className="flex mt-4 mb-4 ml-16 space-x-16">
         <span>
-          <img src={imgPlaceholder} className="w-[450px] h-[400px] border-1" />
+          <img
+            src={pet.images?.length ? pet.images[0] : imgPlaceholder}
+            className="w-[450px] h-[400px] border-1 object-cover"
+          />
         </span>
         <span className="border-1 bg-white w-48 ">{pet.description}</span>
       </div>

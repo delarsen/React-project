@@ -38,7 +38,11 @@ class ViewRegisteredPetsPage extends Component {
     return (
       <div className="flex main-content space-between flex-col md:flex-row">
         <OffCanvas />
-        <PetCards pets={this.props.pets} url={this.state.url} />
+        <PetCards
+          pets={this.props.pets}
+          url={this.state.url}
+          type={this.props.type}
+        />
       </div>
     );
   }

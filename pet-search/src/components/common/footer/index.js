@@ -16,7 +16,7 @@ export default class Footer extends Component {
                   rel="noopener noreferrer"
                   className="no-underline "
                 >
-                  GithubPage
+                  Arseny Delikatny
                 </a>
               </div>
             </div>

@@ -13,13 +13,17 @@ export default class PetCards extends Component {
       return (
         <div key={pet.id}>
           <Card
-            style={{ width: "90%", height: "95%", margin: "10px 0 0px 20px" }}
+            style={{
+              width: "270px",
+              height: "500px",
+              margin: "10px 0 0px 20px",
+            }}
             key={pet.id}
           >
             <Card.Img
               variant="top"
               src={pet.images[0] ?? imgPlaceholder}
-              style={{ height: "55%" }}
+              style={{ minHeight: "250px" }}
               className="object-cover"
             />
             <Card.Body className="text-center">
@@ -42,7 +46,7 @@ export default class PetCards extends Component {
               <br />
               <br />
               <Card.Text className="text-left text-sm md:text-base italic mb-2">
-                Found on {pet.date}.
+                {this.props.type === "lost" ? "Lost" : "Found"} on {pet.date}.
               </Card.Text>
             </Card.Body>
           </Card>
