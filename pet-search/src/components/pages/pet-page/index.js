@@ -46,8 +46,8 @@ export default function PetPage(props) {
         <span>
           {petCardType} {pet.type} "{pet.breed}"
         </span>
-        <ul className="flex space-x-36 text-2xl text-center justify-center mt-24">
-          <li type="circle">{pet.age}</li>
+        <ul className="flex space-x-36 text-2xl text-center justify-center mt-24 ">
+          <li type="circle">{pet.age} years</li>
           <li type="circle">{getGenderValue()}</li>
           <li type="circle">{pet.color}</li>
           <li type="circle">{getNeuteredValue()}</li>
@@ -61,7 +61,7 @@ export default function PetPage(props) {
             className="w-[450px] h-[400px] border-1 object-cover"
           />
         </span>
-        <span className=" bg-white w-[40rem] h-24 left mt-32 text-lg font-light">
+        <span className=" bg-white w-[40rem] h-24 left mt-24 text-lg font-light">
           {pet.description}
         </span>
       </div>

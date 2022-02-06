@@ -71,15 +71,13 @@ export default class LoginButton extends Component {
   }
   render() {
     return (
-      <>
-        <Dropdown className="self-center mr-4 custom-dropdown">
-          <Dropdown.Toggle
-            as={this.props.isLoggedIn ? CustomToggle : CustomToggleQuit}
-            id="dropdown-custom-components"
-          />
-          {this.renderDropdownMenu()}
-        </Dropdown>
-      </>
+      <Dropdown className="self-center mr-4 custom-dropdown">
+        <Dropdown.Toggle
+          as={this.props.isLoggedIn ? CustomToggle : CustomToggleQuit}
+          id="dropdown-custom-components"
+        />
+        {this.renderDropdownMenu()}
+      </Dropdown>
     );
   }
 }

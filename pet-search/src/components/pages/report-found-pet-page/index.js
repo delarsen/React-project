@@ -9,6 +9,7 @@ import * as petService from "../../../services/pet-service";
 
 let schema = yup.object().shape({
   age: yup.number().required(),
+  description: yup.string().required().min(100),
 });
 
 const breeds = {
@@ -118,13 +119,12 @@ class ReportFoundPetPage extends Component {
     return options;
   };
 
-  componentDidMount() {
+  render() {
     if (!localStorage.getItem("isLoggedIn")) {
       window.location.href = "/React-project/loginrequired";
+      return <></>;
     }
-  }
 
-  render() {
     return (
       <Row className="w-full ">
         <div className="w-full h-48 bg-amber-400 text-center pt-20 md:pt-12 text-3xl text-white font-light sm:text-5xl md:text-7xl">
@@ -219,9 +219,6 @@ class ReportFoundPetPage extends Component {
                       <option value="female" key="female">
                         Female
                       </option>
-                      <option value="dontknow" key="dontknow">
-                        Don't know
-                      </option>
                     </Form.Select>
                     <Form.Control.Feedback type="invalid">
                       {errors.gender}
@@ -260,9 +257,6 @@ class ReportFoundPetPage extends Component {
                       <option value="no" key="no">
                         No
                       </option>
-                      <option value="dontknow" key="dontknow">
-                        Don't know
-                      </option>
                     </Form.Select>
                     <Form.Control.Feedback type="invalid">
                       {errors.neutered}
@@ -279,11 +273,20 @@ class ReportFoundPetPage extends Component {
                     onChange={handleChange("color")}
                     isInvalid={!!errors.color}
                   >
-                    <option className="bg-red-400" value="red" key="red">
-                      Red
+                    <option className="bg-gray-400" value="red" key="red">
+                      Gray
                     </option>
-                    <option value="black" key="black">
+                    <option className="bg-zinc-700" value="black" key="black">
                       Black
+                    </option>
+                    <option className="bg-white" value="black" key="black">
+                      White
+                    </option>
+                    <option className="bg-yellow-900" value="black" key="black">
+                      Brown
+                    </option>
+                    <option className="bg-yellow-300" value="black" key="black">
+                      Gold
                     </option>
                   </Form.Select>
                   <Form.Control.Feedback type="invalid">

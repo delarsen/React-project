@@ -16,8 +16,8 @@ export default class MainPageSlider extends Component {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>We help to return pets</h3>
+              <p>Help owners find their pets by posting an ad on our site.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={5000}>
@@ -27,8 +27,11 @@ export default class MainPageSlider extends Component {
               alt="Second slide"
             />
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>Our website is completely free</h3>
+              <p>
+                The most advanced, free online missing pet matching service in
+                Belarus.
+              </p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={5000}>
@@ -38,9 +41,10 @@ export default class MainPageSlider extends Component {
               alt="Third slide"
             />
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>We can help locate any kind of pet</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                From dogs and cats to ferrets and birds, whether they are lost
+                or stolen.
               </p>
             </Carousel.Caption>
           </Carousel.Item>

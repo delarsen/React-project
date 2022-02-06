@@ -7,7 +7,7 @@ import {
   filterByGender,
 } from "../../../store/filterSlice";
 
-function FilterSideBar() {
+function FilterSideBar(props) {
   const dispatch = useDispatch();
 
   const onTypeChange = (e) => {
@@ -29,7 +29,7 @@ function FilterSideBar() {
   return (
     <div className="w-72 space-y-8 mt-4">
       <div className="text-xl font-bold text-center">
-        Filters
+        {props.type === "lost" ? "Lost pets" : "Found pets"} filters
         <hr />
       </div>
 
@@ -56,7 +56,7 @@ function FilterSideBar() {
           </select>
         </p>
       </div>
-      <p>
+      <div>
         <div className="md:ml-4 text-center">
           <span>
             <label className="font-semibold">From Date:</label>
@@ -79,8 +79,8 @@ function FilterSideBar() {
             ></input>
           </span>
         </div>
-      </p>
-      <p>
+      </div>
+      <div>
         <div className="md:ml-4 text-center">
           <label className="mb-1 font-semibold">Gender:</label>
           <br />
@@ -100,7 +100,7 @@ function FilterSideBar() {
             </option>
           </select>
         </div>
-      </p>
+      </div>
     </div>
   );
 }

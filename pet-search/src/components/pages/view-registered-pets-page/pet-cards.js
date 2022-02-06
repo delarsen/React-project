@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { Button, Card } from "react-bootstrap";
 import imgPlaceholder from "../../../images/img-placeholder.png";
 import imgBackground from "../../../images/animals-bc.jpg";
+import Loader from "../../common/loader";
 
 export default class PetCards extends Component {
   renderPets() {
     if (!this.props.pets.length) {
       return (
-        <div className="text-lime-500 text-5xl col-start-1 col-end-3 ml-[28rem] mt-64 font-bold">
-          Pets not found
+        <div className="text-amber-400 text-3xl col-end-3 mt-64 font-bold h-48 bg-slate-100">
+          <div className="mt-20 text-center">Pets not found</div>
         </div>
       );
     }
@@ -54,14 +55,15 @@ export default class PetCards extends Component {
 
   render() {
     return (
-      <>
-        <div
-          className=" grid grid-cols-1 lg:grid-cols-3 w-full"
-          style={{ backgroundImage: `url(${imgBackground})` }}
-        >
-          {this.renderPets()}
-        </div>
-      </>
+      <div className=" grid grid-cols-1 lg:grid-cols-3 w-full pet-card-background">
+        {this.props.showLoader ? (
+          <div className="col-end-3 ml-half mt-80-percent">
+            <Loader variant="warning" />
+          </div>
+        ) : (
+          this.renderPets()
+        )}
+      </div>
     );
   }
 }

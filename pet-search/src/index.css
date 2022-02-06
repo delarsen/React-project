@@ -33,3 +33,25 @@ code {
   right: 0;
   left: auto;
 }
+
+.pet-search-loader {
+  width: 75px !important;
+  height: 75px !important;
+  border-width: 0.75rem !important;
+}
+
+.ml-half {
+  margin-left: 50%;
+}
+
+.mt-80-percent {
+  margin-top: 80%;
+}
+
+.profile-nav {
+  width: calc(100vw - 13.5rem);
+}
+
+.pet-card-background {
+  background-image: url("./images/animals-bc.jpg");
+}

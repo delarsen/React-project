@@ -11,6 +11,7 @@ class ViewRegisteredPetsPage extends Component {
     this.state = {
       pets: [],
       url: "",
+      showLoader: true,
     };
   }
 
@@ -19,7 +20,7 @@ class ViewRegisteredPetsPage extends Component {
       this.setState({ url: "/React-project/viewfoundpets" });
       petService.getFoundPets().then((response) => {
         response = response.sort((a, b) => b.id - a.id);
-        this.setState({ pets: response });
+        this.setState({ pets: response, showLoader: false });
         this.props.savePetList(response);
       });
       return;
@@ -28,7 +29,7 @@ class ViewRegisteredPetsPage extends Component {
     this.setState({ url: "/React-project/viewlostpets" });
     petService.getLostPets().then((response) => {
       response = response.sort((a, b) => b.id - a.id);
-      this.setState({ pets: response });
+      this.setState({ pets: response, showLoader: false });
       this.props.savePetList(response);
     });
   }
@@ -36,11 +37,12 @@ class ViewRegisteredPetsPage extends Component {
   render() {
     return (
       <div className="flex main-content space-between flex-col md:flex-row">
-        <Filter />
+        <Filter type={this.props.type} />
         <PetCards
           pets={this.props.pets}
           url={this.state.url}
           type={this.props.type}
+          showLoader={this.state.showLoader}
         />
       </div>
     );

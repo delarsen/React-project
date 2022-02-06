@@ -4,12 +4,21 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import * as userService from "../../../services/user-service";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const phoneRegExp = /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/;
 
 const schema = yup.object().shape({
   name: yup.string().required(),
   surname: yup.string().required(),
   email: yup.string().required(),
-  phone: yup.string().required(),
+  phone: yup
+    .string()
+    .required()
+    .matches(
+      phoneRegExp,
+      "Phone number should match format: +375(29,33,44,25)......."
+    ),
   password: yup.string().required(),
   confirmPassword: yup
     .string()
@@ -19,6 +28,7 @@ const schema = yup.object().shape({
 
 function RegisterPage() {
   const [errorMessage, setErrorMessage] = useState("");
+  let navigate = useNavigate();
 
   const registerUser = (values) => {
     userService.getUsers().then((users) => {
@@ -51,7 +61,7 @@ function RegisterPage() {
                 phone: user.phone,
               })
             );
-            window.location.href = "/React-project/account";
+            setTimeout(() => navigate("/account"), 1000);
           });
         });
     });
@@ -132,7 +142,7 @@ function RegisterPage() {
               <Form.Label>Phone</Form.Label>
               <InputGroup hasValidation>
                 <Form.Control
-                  type="text"
+                  type="tel"
                   placeholder="Phone"
                   value={values.phone || ""}
                   name="Phone"

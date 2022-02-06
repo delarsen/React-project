@@ -64,7 +64,7 @@ export default class Header extends Component {
                     href="/React-project/reportfoundpet"
                     className="md:ml-8 text-center font-bold md:font-normal"
                   >
-                    Register found pet
+                    Report found pet
                   </Nav.Link>
                   <Nav.Link
                     href="/React-project/viewpets"

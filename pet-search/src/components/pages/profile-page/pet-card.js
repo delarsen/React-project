@@ -5,7 +5,6 @@ import imgPlaceholder from "../../../images/img-placeholder.png";
 export default class PetCard extends Component {
   constructor(props) {
     super(props);
-
     this.handleDelete = this.handleDelete.bind(this);
   }
 

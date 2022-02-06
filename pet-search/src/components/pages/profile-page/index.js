@@ -29,7 +29,7 @@ export default function ProfilePage() {
           Lost pets
         </Nav.Link>
       </Nav>
-      <div style={{ width: "calc(100vw - 13.5rem)" }}>{pages[link]}</div>
+      <div className="profile-nav">{pages[link]}</div>
     </div>
   );
 }

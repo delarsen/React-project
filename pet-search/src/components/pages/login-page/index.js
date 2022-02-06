@@ -4,6 +4,7 @@ import paws from "../../../images/paws.png";
 import { Formik } from "formik";
 import * as yup from "yup";
 import * as userService from "../../../services/user-service";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   email: yup.string().required(),
@@ -12,6 +13,7 @@ const schema = yup.object().shape({
 
 function LoginPage() {
   const [errorMessage, setErrorMessage] = useState("");
+  let navigate = useNavigate();
 
   const loginUser = (values) => {
     userService.getUsers().then((users) => {
@@ -38,7 +40,8 @@ function LoginPage() {
           phone: user.phone,
         })
       );
-      window.location.href = "/React-project/account";
+
+      setTimeout(() => navigate("/account"), 1000);
     });
   };
 
