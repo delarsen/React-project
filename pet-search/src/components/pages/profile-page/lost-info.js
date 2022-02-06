@@ -8,18 +8,16 @@ export default class LostInfo extends Component {
     this.state = {
       pets: [],
     };
-
     this.onDeletePet = this.onDeletePet.bind(this);
   }
 
   componentDidMount() {
-    // Get parsed user
     const user = JSON.parse(localStorage.getItem("user"));
-
     petService.getLostPets().then((response) => {
       const userPets = response?.filter((pet) => pet.registeredBy === user.id);
       this.setState({ pets: userPets });
     });
+    console.log(this.state.pets);
   }
 
   onDeletePet(pet) {
@@ -31,6 +29,9 @@ export default class LostInfo extends Component {
   render() {
     return (
       <div>
+        <div className="bg-amber-400 w-full h-48 text-white text-7xl font-light text-center pt-16">
+          Here are your lost pet notices
+        </div>
         {this.state.pets.map((pet) => (
           <PetCard pet={pet} key={pet.id} onDeletePet={this.onDeletePet} />
         ))}

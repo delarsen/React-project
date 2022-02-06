@@ -9,6 +9,7 @@ const schema = yup.object().shape({
   name: yup.string().required(),
   surname: yup.string().required(),
   email: yup.string().required(),
+  phone: yup.string().required(),
   password: yup.string().required(),
   confirmPassword: yup
     .string()
@@ -32,9 +33,27 @@ function RegisterPage() {
           name: values.name,
           surname: values.surname,
           email: values.email,
+          phone: values.phone,
           password: values.password,
         })
-        .then(() => (window.location.href = "/React-project/login"));
+        .then(() => {
+          userService.getUsers().then((users) => {
+            const user = users.find((user) => user.email === values.email);
+
+            localStorage.setItem("isLoggedIn", true);
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                email: user.email,
+                name: user.name,
+                surname: user.surname,
+                id: user.id,
+                phone: user.phone,
+              })
+            );
+            window.location.href = "/React-project/account";
+          });
+        });
     });
   };
 
@@ -48,6 +67,7 @@ function RegisterPage() {
           name: "",
           surname: "",
           email: "",
+          phone: "",
           password: "",
           confirmPassword: "",
         }}
@@ -105,6 +125,22 @@ function RegisterPage() {
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.email}
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+            <Form.Group as={Col} controlId="validationPhone" className="mt-6">
+              <Form.Label>Phone</Form.Label>
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="text"
+                  placeholder="Phone"
+                  value={values.phone || ""}
+                  name="Phone"
+                  onChange={handleChange("phone")}
+                  isInvalid={!!errors.phone}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.phone}
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>

@@ -6,25 +6,24 @@ import imgBackground from "../../../images/animals-bc.jpg";
 export default class PetCards extends Component {
   renderPets() {
     if (!this.props.pets.length) {
-      return <div>Pets not found</div>;
+      return (
+        <div className="text-lime-500 text-5xl col-start-1 col-end-3 ml-[28rem] mt-64 font-bold">
+          Pets not found
+        </div>
+      );
     }
 
     return this.props.pets?.map((pet) => {
       return (
         <div key={pet.id}>
           <Card
-            style={{
-              width: "270px",
-              height: "500px",
-              margin: "10px 0 0px 20px",
-            }}
+            className="w-[350px] h-[500px] mt-[10px] ml-[20px]"
             key={pet.id}
           >
             <Card.Img
               variant="top"
               src={pet.images[0] ?? imgPlaceholder}
-              style={{ minHeight: "250px" }}
-              className="object-cover"
+              className="object-cover min-h-[250px]"
             />
             <Card.Body className="text-center">
               <Card.Title className="text-center text-xl">
@@ -42,10 +41,8 @@ export default class PetCards extends Component {
               >
                 View more info
               </Button>
-              <br />
-              <br />
-              <br />
-              <Card.Text className="text-left text-sm md:text-base italic mb-2">
+
+              <Card.Text className="text-left text-sm md:text-base italic mb-2 mt-12">
                 {this.props.type === "lost" ? "Lost" : "Found"} on {pet.date}.
               </Card.Text>
             </Card.Body>

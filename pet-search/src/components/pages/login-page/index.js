@@ -16,6 +16,7 @@ function LoginPage() {
   const loginUser = (values) => {
     userService.getUsers().then((users) => {
       const user = users.find((user) => user.email === values.email);
+      console.log(user);
       if (!user) {
         setErrorMessage("User not found");
         return;
@@ -34,9 +35,10 @@ function LoginPage() {
           name: user.name,
           surname: user.surname,
           id: user.id,
+          phone: user.phone,
         })
       );
-      window.location.href = "/React-project/";
+      window.location.href = "/React-project/account";
     });
   };
 

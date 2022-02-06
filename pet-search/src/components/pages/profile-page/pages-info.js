@@ -28,13 +28,13 @@ export default class AccountInfo extends Component {
             </span>
             <hr />
             <span className="font-bold text-xl">
-              Name{" "}
+              Name:
               <span className="font-light ml-4">
                 {user.name} {user.surname}
               </span>
             </span>
             <span className="font-bold text-xl">
-              Email <span className="font-light ml-4">{user.email} </span>
+              Email: <span className="font-light ml-4">{user.email} </span>
             </span>
           </span>
           <div className="mt-10 ml-10">

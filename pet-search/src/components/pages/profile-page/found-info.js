@@ -13,9 +13,7 @@ export default class FoundInfo extends Component {
   }
 
   componentDidMount() {
-    // Get parsed user
     const user = JSON.parse(localStorage.getItem("user"));
-
     petService.getFoundPets().then((response) => {
       const userPets = response?.filter((pet) => pet.registeredBy === user.id);
       this.setState({ pets: userPets });
@@ -31,9 +29,14 @@ export default class FoundInfo extends Component {
   render() {
     return (
       <div>
-        {this.state.pets.map((pet) => (
-          <PetCard pet={pet} key={pet.id} onDeletePet={this.onDeletePet} />
-        ))}
+        <div className="bg-amber-400 w-full h-48 text-white text-7xl font-light text-center pt-16">
+          Here are your found pet notices
+        </div>
+        <div className="grid grid-cols-2 grid-rows-3 w-full">
+          {this.state.pets.map((pet) => (
+            <PetCard pet={pet} key={pet.id} onDeletePet={this.onDeletePet} />
+          ))}
+        </div>
       </div>
     );
   }

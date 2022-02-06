@@ -29,16 +29,15 @@ export default class RequiredPage extends Component {
               everyday free of charge for you, until we find the owner or you
               close the case.
             </p>
-            <br />
 
-            <h3 className=" font-light">Do you have an account?</h3>
+            <h3 className=" font-light mt-16">Do you have an account?</h3>
             <p className="font-light text-base md:text-xl mt-2">
               Before you can report this found pet, we just need to take a few
               details from you. This should only take a couple of minutes. If
               you already have an account then login using the button below.
             </p>
-            <br />
-            <p>
+
+            <p className="mt-10">
               <Button
                 variant="outline-dark"
                 href="/React-project/login"

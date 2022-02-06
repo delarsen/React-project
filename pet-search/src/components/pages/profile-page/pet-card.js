@@ -15,18 +15,20 @@ export default class PetCard extends Component {
 
   render() {
     return (
-      <div>
-        <div className="inline-flex items-center">
+      <div className="ml-16 mt-8">
+        <div className="inline-flex items-center border-2 p-2">
           <Image
             thumbnail
-            className="w-16 h-16 m-auto object-cover"
+            className="w-24 min-h-[68px] m-auto object-cover"
             src={this.props.pet.images[0] ?? imgPlaceholder}
           />
           <div className="ml-8">
             {this.props.pet.breed} {this.props.pet.type}
           </div>
           <div className="ml-8">{this.props.pet.date}</div>
-          <Button onClick={this.handleDelete}>Delete</Button>
+          <Button onClick={this.handleDelete} className="ml-4">
+            Delete
+          </Button>
         </div>
       </div>
     );

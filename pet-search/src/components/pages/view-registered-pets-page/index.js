@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as petService from "../../../services/pet-service";
 import PetCards from "./pet-cards";
-import OffCanvas from "./offcanvas.js";
+import Filter from "./filter.js";
 import { savePetList } from "../../../store/filterSlice";
 import { connect } from "react-redux";
 
@@ -18,7 +18,6 @@ class ViewRegisteredPetsPage extends Component {
     if (this.props.type === "found") {
       this.setState({ url: "/React-project/viewfoundpets" });
       petService.getFoundPets().then((response) => {
-        //Reverse pet-cards
         response = response.sort((a, b) => b.id - a.id);
         this.setState({ pets: response });
         this.props.savePetList(response);
@@ -37,7 +36,7 @@ class ViewRegisteredPetsPage extends Component {
   render() {
     return (
       <div className="flex main-content space-between flex-col md:flex-row">
-        <OffCanvas />
+        <Filter />
         <PetCards
           pets={this.props.pets}
           url={this.state.url}

@@ -64,6 +64,7 @@ class ReportLostPetPage extends Component {
   };
 
   onSubmitPet = (values) => {
+    const user = JSON.parse(localStorage.getItem("user"));
     const pet = {
       type: values.typeOfPet,
       breed:
@@ -77,6 +78,7 @@ class ReportLostPetPage extends Component {
       description: values.description,
       date: values.date,
       images: this.state.images,
+      registeredBy: user.id,
     };
 
     petService.addLostPet(pet).then(() => {
