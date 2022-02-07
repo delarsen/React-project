@@ -42,7 +42,7 @@ export default function PetPage(props) {
   }
   return (
     <div>
-      <div className="w-full h-[300px] bg-sky-400 text-center pt-20 md:pt-12 text-3xl text-white font-light sm:text-5xl md:text-7xl">
+      <div className=" h-[300px] bg-sky-400 text-center pt-20 md:pt-12 text-3xl text-white font-light sm:text-5xl md:text-7xl">
         <span>
           {petCardType} {pet.type} "{pet.breed}"
         </span>
@@ -54,14 +54,14 @@ export default function PetPage(props) {
           <li type="circle">{pet.date}</li>
         </ul>
       </div>
-      <div className="flex mt-4 mb-4 ml-16 space-x-16 w-full">
+      <div className="flex mt-4 mb-4 ml-16 space-x-16 w-full flex flex-col md:flex-row">
         <span>
           <img
             src={pet.images?.length ? pet.images[0] : imgPlaceholder}
             className="w-[450px] h-[400px] border-1 object-cover"
           />
         </span>
-        <span className=" bg-white w-[40rem] h-24 left mt-24 text-lg font-light">
+        <span className=" bg-white w-[40rem] h-24 left mt-24 text-sm md:text-lg font-light">
           {pet.description}
         </span>
       </div>

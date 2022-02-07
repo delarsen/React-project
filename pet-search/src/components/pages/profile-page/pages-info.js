@@ -3,7 +3,6 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function AccountInfo() {
-  // Get parsed user
   const user = JSON.parse(localStorage.getItem("user"));
   let navigate = useNavigate();
 
@@ -15,7 +14,7 @@ function AccountInfo() {
 
   return (
     <div>
-      <div className="w-full h-[18rem] bg-amber-400 text-white text-7xl font-light text-center pt-24">
+      <div className="w-full h-[18rem] bg-amber-400 text-white text-4xl md:text-7xl font-light text-center pt-24">
         Dashboard
       </div>
       <div>

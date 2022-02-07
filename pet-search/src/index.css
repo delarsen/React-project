@@ -55,3 +55,7 @@ code {
 .pet-card-background {
   background-image: url("./images/animals-bc.jpg");
 }
+
+.profile-navigation {
+  min-height: inherit;
+}

@@ -13,10 +13,10 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="inline-flex" style={{ minHeight: "inherit" }}>
+    <div className="inline-flex profile-navigation flex flex-col md:flex-row">
       <Nav
         defaultActiveKey="info"
-        className="flex-column w-48 bg-neutral-500 text-center"
+        className="flex-column w-full md:w-48 bg-neutral-500 text-center"
         onSelect={(key) => setLink(key)}
       >
         <Nav.Link eventKey="info" className="hover:bg-neutral-700 text-white ">

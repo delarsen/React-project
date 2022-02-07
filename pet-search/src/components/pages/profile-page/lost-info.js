@@ -31,13 +31,17 @@ export default class LostInfo extends Component {
         <div className="bg-amber-400 w-full h-48 text-white text-7xl font-light text-center pt-16">
           Here are your lost pet notices
         </div>
-        {!this.state.pets.length ? (
-          <div>Pets not found</div>
-        ) : (
-          this.state.pets.map((pet) => (
-            <PetCard pet={pet} key={pet.id} onDeletePet={this.onDeletePet} />
-          ))
-        )}
+        <div className="md:grid md:grid-cols-2 md:grid-rows-3 w-full">
+          {!this.state.pets.length ? (
+            <div className="col-start-1 col-end-3 text-center mt-48 text-xl">
+              Pets not found
+            </div>
+          ) : (
+            this.state.pets.map((pet) => (
+              <PetCard pet={pet} key={pet.id} onDeletePet={this.onDeletePet} />
+            ))
+          )}
+        </div>
       </div>
     );
   }
